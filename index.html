@@ -3,1801 +3,1062 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundo Sabedoria Prática ESG | Territórios Culturais Permanentes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --rubi: #9B111E;
-            --rubi-dark: #7A0D18;
-            --ouro: #D4A017;
-            --ouro-claro: #E5B84A;
-            --ametista: #9966CC;
-            --esmeralda: #10B981;
-            --azul: #0F52BA;
-            --fundo: #F9FAFB;
-            --texto: #1F2937;
-            --texto-claro: #6B7280;
-            --gradient-rubi: linear-gradient(135deg, #9B111E 0%, #7A0D18 100%);
-            --gradient-ouro: linear-gradient(135deg, #D4A017 0%, #E5B84A 100%);
-            --gradient-esg: linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%);
+    <title>Fundo Sabedoria Prática ESG | O Legado da Virtude</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        display: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        'ruby': '#9f1239',
+                        'ruby-dark': '#4c0519',
+                        'ruby-light': '#e11d48',
+                        'gold': '#d4af37',
+                        'gold-light': '#f4d03f',
+                        'obsidian': '#0a0a0f',
+                        'crimson': '#dc2626',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(220, 38, 38, 0.5)' },
+                            '100%': { boxShadow: '0 0 40px rgba(220, 38, 38, 0.8), 0 0 60px rgba(212, 175, 55, 0.4)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        }
+                    }
+                }
+            }
         }
-
+    </script>
+    
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--fundo);
-            color: var(--texto);
-            line-height: 1.6;
+            background: #0a0a0f;
+            color: #e2e8f0;
             overflow-x: hidden;
+            cursor: none;
         }
-
-        h1, h2, h3, h4, .display-font {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-        }
-
-        /* Navigation */
-        nav {
+        
+        /* Custom Cursor */
+        .cursor-dot,
+        .cursor-outline {
             position: fixed;
             top: 0;
-            width: 100%;
-            padding: 1.2rem 5%;
-            background: rgba(249, 250, 251, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(155, 17, 30, 0.1);
-            transition: all 0.3s;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--rubi);
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-rubi);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(155, 17, 30, 0.3);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--texto);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--rubi);
-            transition: width 0.3s;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
         }
-
-        .nav-links a:hover {
-            color: var(--rubi);
+        
+        .cursor-dot {
+            width: 5px;
+            height: 5px;
+            background: #dc2626;
         }
-
-        .nav-links a:hover::after {
+        
+        .cursor-outline {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(220, 38, 38, 0.5);
+            transition: all 0.2s ease;
+        }
+        
+        .cursor-outline.hover {
+            width: 60px;
+            height: 60px;
+            background: rgba(220, 38, 38, 0.1);
+            border-color: #d4af37;
+        }
+        
+        /* Grain */
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
-
-        .nav-cta {
-            padding: 0.75rem 1.5rem;
-            background: var(--gradient-rubi);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(155, 17, 30, 0.3);
+        
+        /* Glass */
+        .glass-ruby {
+            background: rgba(159, 18, 57, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(220, 38, 38, 0.2);
         }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(155, 17, 30, 0.4);
+        
+        .glass-ruby:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            background: rgba(159, 18, 57, 0.15);
         }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 5% 4rem;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 50%, #E5E7EB 100%);
+        
+        /* Text Effects */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(220, 38, 38, 0.5), 0 0 40px rgba(212, 175, 55, 0.3);
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            right: -5%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(155, 17, 30, 0.08) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -10%;
-            left: -5%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
-            animation: float 10s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(155, 17, 30, 0.1);
-            border: 1px solid rgba(155, 17, 30, 0.2);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--rubi);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--texto);
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero h1 .highlight {
-            background: var(--gradient-rubi);
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #d4af37 0%, #dc2626 50%, #9f1239 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: block;
-            margin-top: 0.5rem;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradient-shift 8s ease infinite;
         }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--texto-claro);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease 0.4s both;
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
-        .hero-description {
-            font-size: 1.05rem;
-            color: var(--texto-claro);
-            margin-bottom: 2.5rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid var(--rubi);
-            animation: fadeInUp 0.8s ease 0.6s both;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            animation: fadeInUp 0.8s ease 0.8s both;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--gradient-rubi);
-            color: white;
-            box-shadow: 0 4px 20px rgba(155, 17, 30, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(155, 17, 30, 0.4);
-        }
-
-        .btn-secondary {
-            background: var(--gradient-ouro);
-            color: var(--texto);
-            box-shadow: 0 4px 20px rgba(212, 160, 23, 0.3);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(212, 160, 23, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--rubi);
-            border: 2px solid var(--rubi);
-        }
-
-        .btn-outline:hover {
-            background: var(--rubi);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .hero-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: fadeInUp 1s ease 0.5s both;
-            height: 500px;
-        }
-
-        .symbol-container {
-            position: relative;
-            width: 400px;
-            height: 400px;
-        }
-
-        .rubi-central {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 180px;
-            height: 180px;
-            background: var(--gradient-rubi);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 20px 60px rgba(155, 17, 30, 0.4);
-            z-index: 10;
-            animation: rubiPulse 4s ease-in-out infinite;
-        }
-
-        @keyframes rubiPulse {
-            0%, 100% { box-shadow: 0 20px 60px rgba(155, 17, 30, 0.4); }
-            50% { box-shadow: 0 30px 80px rgba(155, 17, 30, 0.6); }
-        }
-
-        .rubi-inner {
-            width: 140px;
-            height: 140px;
-            background: radial-gradient(circle at 30% 30%, #E5B84A 0%, #9B111E 50%, #7A0D18 100%);
-            border-radius: 50%;
+        
+        /* Video Container */
+        .video-container {
             position: relative;
             overflow: hidden;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.5);
         }
-
-        .rubi-inner::before {
+        
+        .video-container::before {
             content: '';
             position: absolute;
-            top: 20%;
-            left: 20%;
-            width: 30%;
-            height: 30%;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
-            border-radius: 50%;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(220, 38, 38, 0.3), rgba(212, 175, 55, 0.2));
+            z-index: 1;
+            pointer-events: none;
         }
-
-        .leao {
-            position: absolute;
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90px;
-            height: 90px;
-            background: var(--ouro);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            color: var(--rubi-dark);
-            box-shadow: 0 10px 30px rgba(212, 160, 23, 0.4);
-            z-index: 5;
-            animation: floatSymbol 6s ease-in-out infinite;
-        }
-
-        .boi {
-            position: absolute;
-            bottom: 15%;
-            left: 12%;
-            width: 80px;
-            height: 80px;
-            background: var(--ametista);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: white;
-            box-shadow: 0 10px 30px rgba(153, 102, 204, 0.4);
-            z-index: 5;
-            animation: floatSymbol 6s ease-in-out infinite 1s;
-        }
-
-        .leoa {
-            position: absolute;
-            bottom: 15%;
-            right: 12%;
-            width: 80px;
-            height: 80px;
-            background: var(--esmeralda);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: white;
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
-            z-index: 5;
-            animation: floatSymbol 6s ease-in-out infinite 2s;
-        }
-
-        @keyframes floatSymbol {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .esg-orbits {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 320px;
-            height: 320px;
-            border: 2px dashed rgba(16, 185, 129, 0.3);
-            border-radius: 50%;
-            animation: rotate 20s linear infinite;
-        }
-
-        .esg-orbits::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 260px;
-            height: 260px;
-            border: 2px dashed rgba(15, 82, 186, 0.3);
-            border-radius: 50%;
-            animation: rotate 15s linear infinite reverse;
-        }
-
-        .esg-orbits::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 380px;
-            height: 380px;
-            border: 2px dashed rgba(107, 114, 128, 0.2);
-            border-radius: 50%;
-            animation: rotate 25s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            display: flex;
-            justify-content: space-around;
-            padding: 3rem 5%;
-            background: var(--rubi);
-            color: white;
-            margin: 0 5%;
-            border-radius: 20px;
-            transform: translateY(-50%);
-            box-shadow: 0 20px 60px rgba(155, 17, 30, 0.3);
+        
+        /* Lion/Bull Symbolism */
+        .beast-frame {
             position: relative;
-            z-index: 10;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1rem;
-            min-width: 150px;
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--ouro);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(155, 17, 30, 0.1);
-            border: 1px solid rgba(155, 17, 30, 0.2);
-            border-radius: 50px;
-            color: var(--rubi);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            color: var(--texto);
-        }
-
-        .section-subtitle {
-            color: var(--texto-claro);
-            font-size: 1.15rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Active Projects */
-        .projects-highlight {
-            background: white;
-            border-radius: 30px;
-            padding: 4rem;
-            margin: 4rem 0;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: var(--fundo);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.4s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-card.featured {
-            grid-column: span 2;
-        }
-
-        .project-image {
-            height: 200px;
-            background: var(--gradient-rubi);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-        }
-
-        .project-card:nth-child(2) .project-image {
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-        }
-
-        .project-card:nth-child(3) .project-image {
-            background: linear-gradient(135deg, #0F52BA 0%, #1E40AF 100%);
-        }
-
-        .project-card:nth-child(4) .project-image {
-            background: linear-gradient(135deg, #9966CC 0%, #7C3AED 100%);
-        }
-
-        .project-card:nth-child(5) .project-image {
-            background: linear-gradient(135deg, #D4A017 0%, #E5B84A 100%);
-            color: var(--texto);
-        }
-
-        .project-status {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            padding: 0.5rem 1rem;
-            background: var(--esmeralda);
-            color: white;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .project-area {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(155, 17, 30, 0.1);
-            color: var(--rubi);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .project-location {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            font-size: 0.85rem;
-            color: var(--texto-claro);
-        }
-
-        .project-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-card p {
-            color: var(--texto-claro);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .project-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--texto-claro);
-        }
-
-        .project-features li i {
-            color: var(--esmeralda);
-            font-size: 0.8rem;
-        }
-
-        .project-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .project-value {
-            font-weight: 700;
-            color: var(--rubi);
-            font-size: 1.2rem;
-        }
-
-        .project-partner {
-            font-size: 0.8rem;
-            color: var(--texto-claro);
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        /* Housing Section */
-        .housing-section {
-            background: linear-gradient(135deg, rgba(155, 17, 30, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%);
-            border-radius: 30px;
-            padding: 4rem;
-            margin: 4rem 0;
-        }
-
-        .housing-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .housing-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--rubi);
-        }
-
-        .housing-text > p {
-            color: var(--texto-claro);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .housing-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .housing-features li {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .housing-features li i {
-            color: var(--rubi);
-            font-size: 1.2rem;
-            margin-top: 0.2rem;
-        }
-
-        .housing-features li strong {
-            display: block;
-            margin-bottom: 0.25rem;
-            color: var(--texto);
-        }
-
-        .housing-features li p {
-            font-size: 0.9rem;
-            color: var(--texto-claro);
-            margin: 0;
-        }
-
-        .housing-visual {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
-
-        .housing-visual i {
-            font-size: 5rem;
-            color: var(--rubi);
-            margin-bottom: 1.5rem;
-        }
-
-        .housing-visual h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .housing-visual p {
-            color: var(--texto-claro);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Partnerships Section */
-        .partnerships-section {
-            background: white;
-            border-radius: 30px;
-            padding: 4rem;
-            margin: 4rem 0;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-        }
-
-        .partnerships-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .partnership-card {
-            background: var(--fundo);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .partnership-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
-
-        .partnership-icon {
-            width: 80px;
-            height: 80px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
-            color: white;
+            padding: 20px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.2) 0%, transparent 70%);
         }
-
-        .partnership-card:nth-child(1) .partnership-icon { background: var(--gradient-rubi); }
-        .partnership-card:nth-child(2) .partnership-icon { background: var(--gradient-ouro); color: var(--texto); }
-        .partnership-card:nth-child(3) .partnership-icon { background: var(--gradient-esg); }
-
-        .partnership-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.75rem;
+        
+        /* Territory Cards */
+        .territory-card {
+            background: linear-gradient(135deg, rgba(159, 18, 57, 0.1) 0%, rgba(10, 10, 15, 0.9) 100%);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .partnership-card p {
-            font-size: 0.9rem;
-            color: var(--texto-claro);
-            line-height: 1.7;
+        
+        .territory-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #d4af37;
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
         }
-
-        /* Forms Section */
-        .forms-section {
-            background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
-            border-radius: 30px;
-            padding: 4rem;
-            margin: 4rem 0;
-        }
-
-        .forms-grid {
+        
+        /* Hub Grid */
+        .hub-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
-
-        .form-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        
+        /* Animated Border */
+        .animated-border {
+            position: relative;
+            background: linear-gradient(60deg, #0a0a0f, #1a1a2e, #0a0a0f);
+            background-size: 300% 300%;
+            animation: animatedgradient 3s ease alternate infinite;
         }
-
-        .form-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        
+        @keyframes animatedgradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
-        .form-card h3 i {
-            color: var(--rubi);
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
-
-        .form-card > p {
-            color: var(--texto-claro);
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
         }
-
-        .form-group {
-            margin-bottom: 1.5rem;
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #dc2626, #d4af37);
+            border-radius: 5px;
         }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: var(--texto);
+        
+        /* Mobile Menu */
+        .menu-mobile {
+            clip-path: circle(0% at calc(100% - 40px) 40px);
+            transition: clip-path 0.6s ease-in-out;
         }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        
+        .menu-mobile.active {
+            clip-path: circle(150% at calc(100% - 40px) 40px);
+        }
+        
+        /* Sacred Geometry Background */
+        .sacred-geometry {
+            position: absolute;
             width: 100%;
-            padding: 0.875rem 1rem;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--rubi);
-            box-shadow: 0 0 0 3px rgba(155, 17, 30, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 1rem;
-            background: var(--gradient-rubi);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(155, 17, 30, 0.3);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
-            border-radius: 30px;
-            padding: 5rem;
-            margin: 4rem 5%;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(155, 17, 30, 0.1) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
-        }
-
-        .contact-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-section h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-section > p {
-            font-size: 1.15rem;
-            color: rgba(255,255,255,0.8);
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: rgba(255,255,255,0.9);
-            font-size: 1.1rem;
-        }
-
-        .contact-item i {
-            color: var(--ouro);
-            font-size: 1.3rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--texto);
-            color: white;
-            padding: 4rem 5% 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-rubi);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .footer-desc {
-            color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--rubi);
-            transform: translateY(-3px);
-        }
-
-        .footer-column h4 {
-            color: var(--ouro);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-column a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .footer-column a:hover {
-            color: var(--ouro);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.5);
-            font-size: 0.85rem;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-visual {
-                order: -1;
-                height: 350px;
-            }
-
-            .symbol-container {
-                transform: scale(0.8);
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card.featured {
-                grid-column: span 1;
-            }
-
-            .housing-content,
-            .forms-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .partnerships-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .stats-bar {
-                flex-direction: column;
-                transform: translateY(-30%);
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .contact-section {
-                padding: 3rem 2rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                repeating-linear-gradient(60deg, transparent, transparent 50px, rgba(220, 38, 38, 0.1) 50px, rgba(220, 38, 38, 0.1) 51px),
+                repeating-linear-gradient(-60deg, transparent, transparent 50px, rgba(212, 175, 55, 0.1) 50px, rgba(212, 175, 55, 0.1) 51px);
         }
     </style>
 </head>
-<body>
+<body class="font-sans antialiased selection:bg-crimson selection:text-white">
+
+    <!-- Grain Overlay -->
+    <div class="grain"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
 
     <!-- Navigation -->
-    <nav id="navbar">
-        <a href="#" class="logo">
-            <div class="logo-icon">
-                <i class="fas fa-gem"></i>
+    <nav class="fixed w-full z-50 top-0 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-6">
+            <div class="flex justify-between items-center">
+                <a href="#" class="group flex items-center space-x-3 magnetic-btn">
+                    <div class="beast-frame w-14 h-14 flex items-center justify-center">
+                        <i data-lucide="gem" class="text-gold w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-display font-bold text-white block leading-none tracking-wider">SABEDORIA</span>
+                        <span class="text-xs text-crimson font-bold tracking-[0.3em] uppercase">Prática ESG</span>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#visao" class="text-sm text-gray-400 hover:text-gold transition-colors magnetic-btn">A Visão</a>
+                    <a href="#territorios" class="text-sm text-gray-400 hover:text-gold transition-colors magnetic-btn">Territórios</a>
+                    <a href="#pilares" class="text-sm text-gray-400 hover:text-gold transition-colors magnetic-btn">3 Pilares</a>
+                    <a href="#mulheres" class="text-sm text-crimson hover:text-red-400 transition-colors magnetic-btn font-medium">Liderança Feminina</a>
+                    <a href="#hub" class="text-sm text-gray-400 hover:text-gold transition-colors magnetic-btn">Hub</a>
+                    <a href="#contato" class="magnetic-btn bg-gradient-to-r from-crimson to-ruby hover:from-red-600 hover:to-red-800 text-white px-6 py-3 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-lg shadow-crimson/30">
+                        Investir
+                    </a>
+                </div>
+                
+                <button class="md:hidden text-white" id="menuToggle">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
             </div>
-            Fundo Sabedoria Prática ESG
-        </a>
-        <ul class="nav-links">
-            <li><a href="#projetos">Projetos em Captação</a></li>
-            <li><a href="#habitacao">Habitação</a></li>
-            <li><a href="#parcerias">Parcerias</a></li>
-            <li><a href="#cadastro">Cadastre-se</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-        <a href="#cadastro" class="nav-cta">Cadastrar Projeto</a>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="menu-mobile fixed inset-0 bg-obsidian z-40 flex items-center justify-center md:hidden">
+            <div class="text-center space-y-8">
+                <a href="#visao" class="block text-3xl font-display text-white hover:text-gold transition-colors">A Visão</a>
+                <a href="#territorios" class="block text-3xl font-display text-white hover:text-gold transition-colors">Territórios</a>
+                <a href="#pilares" class="block text-3xl font-display text-white hover:text-gold transition-colors">3 Pilares</a>
+                <a href="#mulheres" class="block text-3xl font-display text-crimson transition-colors">Liderança Feminina</a>
+                <a href="#hub" class="block text-3xl font-display text-white hover:text-gold transition-colors">Hub</a>
+                <a href="#contato" class="inline-block bg-crimson text-white px-8 py-4 rounded-full text-xl font-bold">Investir Agora</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-badge">
-                    <i class="fas fa-crown"></i>
-                    Territórios Culturais Permanentes
-                </div>
-                <h1>
-                    Fundo Sabedoria Prática ESG
-                    <span class="highlight">Formação, Cultura e Habitação</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Plataforma aberta de captação via Lei de Incentivo para Territórios Culturais Permanentes, Centros de Formação Imersiva e Habitação Social com Reforma Agrária.
-                </p>
-                <p class="hero-description">
-                    Estruturamos projetos de impacto em parceria com Ministério da Cultura, universidades (UNICAMP), empresas construtoras de domos geodésicos e plataformas como Incentiv.me. Nosso ecossistema integra formação cultural, saúde biomecânica, agricultura sustentável e moradia digna.
-                </p>
-                <div class="hero-cta">
-                    <a href="#projetos" class="btn btn-primary">
-                        <i class="fas fa-search"></i> Ver Projetos
-                    </a>
-                    <a href="#habitacao" class="btn btn-secondary">
-                        <i class="fas fa-home"></i> Habitação Social
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="symbol-container">
-                    <div class="esg-orbits"></div>
-                    <div class="leao">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <div class="boi">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <div class="leoa">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="rubi-central">
-                        <div class="rubi-inner"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Bar -->
-    <div class="stats-bar">
-        <div class="stat-item">
-            <span class="stat-number">5+</span>
-            <span class="stat-label">Territórios Culturais</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">Aberto</span>
-            <span class="stat-label">Para Captação</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">R$25M</span>
-            <span class="stat-label">Meta de Captação</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Equity-Free</span>
-        </div>
-    </div>
-
-    <!-- Active Projects Section -->
-    <section id="projetos" class="projects-highlight">
-        <div class="section-header">
-            <span class="section-tag">Portfólio</span>
-            <h2 class="section-title">Projetos em Captação</h2>
-            <p class="section-subtitle">Territórios Culturais Permanentes e Centros de Formação Imersiva abertos para investimento via Lei de Incentivo</p>
+    <!-- Hero Section with Video -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-crimson/20 rounded-full blur-[150px] animate-pulse-slow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-ruby/20 rounded-full blur-[150px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+            <div class="sacred-geometry"></div>
         </div>
 
-        <div class="projects-grid">
-            <!-- Project 1: Juiz de Fora -->
-            <div class="project-card featured">
-                <div class="project-image">
-                    <i class="fas fa-film"></i>
-                    <span class="project-status">Em Captação</span>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: Content -->
+            <div class="order-2 lg:order-1 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-ruby border border-crimson/30 mb-6">
+                    <span class="w-2 h-2 bg-crimson rounded-full animate-pulse"></span>
+                    <span class="text-crimson text-xs font-bold tracking-widest uppercase">O Legado da Virtude</span>
                 </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-area">Território Cultural Permanente</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Juiz de Fora, MG</span>
-                    </div>
-                    <h3>Território Cultural Permanente - Audiovisual e Games</h3>
-                    <p>Centro de formação imersiva em audiovisual, games e economia criativa. Estrutura completa para produção de conteúdo, desenvolvimento de jogos e formação de multiplicadores culturais com foco em geração de renda.</p>
-                    <ul class="project-features">
-                        <li><i class="fas fa-check"></i> Estúdios de gravação e edição</li>
-                        <li><i class="fas fa-check"></i> Laboratório de desenvolvimento de games</li>
-                        <li><i class="fas fa-check"></i> Residência artística</li>
-                        <li><i class="fas fa-check"></i> Formação de multiplicadores</li>
-                    </ul>
-                    <div class="project-meta">
-                        <span class="project-value">R$ 6M</span>
-                        <span class="project-partner"><i class="fas fa-handshake"></i> Ministério da Cultura</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2: Campinas -->
-            <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-running"></i>
-                    <span class="project-status">Em Captação</span>
-                </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-area">Esporte e Neurociência</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Campinas, SP</span>
-                    </div>
-                    <h3>Biomecânica e Artes Circenses</h3>
-                    <p>Centro de sobrevivência urbana integrando parkour, circo, hip-hop, krav maga e arqueria biomecânica. Parceria com UNICAMP - Neurociências do Esporte e Cultura do Corpo como território de cultura viva e saúde.</p>
-                    <ul class="project-features">
-                        <li><i class="fas fa-check"></i> Pesquisa biomecânica aplicada</li>
-                        <li><i class="fas fa-check"></i> Formação em artes circenses</li>
-                        <li><i class="fas fa-check"></i> Parceria UNICAMP</li>
-                    </ul>
-                    <div class="project-meta">
-                        <span class="project-value">R$ 4M</span>
-                        <span class="project-partner"><i class="fas fa-university"></i> UNICAMP</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3: Zona Leste SP -->
-            <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-music"></i>
-                    <span class="project-status">Em Captação</span>
-                </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-area">Música e Difusão</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Zona Leste, SP</span>
-                    </div>
-                    <h3>Centro de Formação Musical Imersivo</h3>
-                    <p>Espaço de formação e difusão musical para jovens da periferia, com instrumentos, estúdios e produção de eventos. Transformando vidas através da música e geração de oportunidades no mercado cultural.</p>
-                    <ul class="project-features">
-                        <li><i class="fas fa-check"></i> Aulas de instrumentos</li>
-                        <li><i class="fas fa-check"></i> Produção musical</li>
-                        <li><i class="fas fa-check"></i> Eventos comunitários</li>
-                    </ul>
-                    <div class="project-meta">
-                        <span class="project-value">R$ 3M</span>
-                        <span class="project-partner"><i class="fas fa-landmark"></i> Política Nacional Cultura Viva</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4: Curitiba -->
-            <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-yin-yang"></i>
-                    <span class="project-status">Em Captação</span>
-                </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-area">Cultura Chinesa</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Curitiba, PR</span>
-                    </div>
-                    <h3>Centro de Cultura Pa Kua</h3>
-                    <p>Centro imersivo de formação e difusão nas 5 modalidades de Pa Kua (arte marcial, medicina chinesa, feng shui, filosofia e chi kung). Espaço de bem-estar, saúde integrativa e intercâmbio cultural.</p>
-                    <ul class="project-features">
-                        <li><i class="fas fa-check"></i> 5 modalidades de formação</li>
-                        <li><i class="fas fa-check"></i> Atendimentos terapêuticos</li>
-                        <li><i class="fas fa-check"></i> Eventos de difusão cultural</li>
-                    </ul>
-                    <div class="project-meta">
-                        <span class="project-value">R$ 2.5M</span>
-                        <span class="project-partner"><i class="fas fa-globe-asia"></i> Federação Internacional Pa Kua</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 5: Formatos CEUs -->
-            <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-book-reader"></i>
-                    <span class="project-status">Em Captação</span>
-                </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-area">Formato CEUs</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Múltiplas Localidades</span>
-                    </div>
-                    <h3>Centros de Formação Imersiva Multiuso</h3>
-                    <p>Centros no formato CEUs em locais com bibliotecas, integrando moradia de formação para multiplicadores, hortas hidropônicas, tokens sociais de reciclagem e empreendedorismo cultural.</p>
-                    <ul class="project-features">
-                        <li><i class="fas fa-check"></i> Moradia para formadores</li>
-                        <li><i class="fas fa-check"></i> Hortas hidropônicas comunitárias</li>
-                        <li><i class="fas fa-check"></i> Tokens de reciclagem</li>
-                        <li><i class="fas fa-check"></i> Bibliotecas acessíveis</li>
-                    </ul>
-                    <div class="project-meta">
-                        <span class="project-value">R$ 9.5M</span>
-                        <span class="project-partner"><i class="fas fa-network-wired"></i> Ecossistema Disruptivos</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Housing Section -->
-    <section id="habitacao" class="housing-section">
-        <div class="housing-content">
-            <div class="housing-text">
-                <span class="section-tag">Habitação Social</span>
-                <h3>Reforma Agrária e Habitação de Interesse Social</h3>
-                <p>Parte do fundo é destinada à <strong>reforma agrária por doações</strong> de empresas, utilizando métodos construtivos inovadores como <strong>domos geodésicos</strong> e outras tecnologias sustentáveis.</p>
                 
-                <p>Trabalhamos em parceria com o <strong>setor público</strong> e políticas como <strong>Minha Casa Minha Vida</strong> para reconstrução de ambientes e fomento à reforma agrária, integrando habitação digna com produção sustentável.</p>
+                <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    <span class="block">Sabedoria</span>
+                    <span class="gradient-text">Prática ESG</span>
+                </h1>
+                
+                <p class="text-xl text-gray-300 mb-8 leading-relaxed font-serif italic">
+                    "Mais preciosa que os rubis, a sabedoria guia a gestão virtuosa que transforma tributos em restauração de vidas e comunidades."
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#territorios" class="magnetic-btn group relative px-8 py-4 bg-gradient-to-r from-crimson to-ruby text-white rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 shadow-xl shadow-crimson/30">
+                        <span class="relative z-10 flex items-center space-x-2">
+                            <span>Descobrir Territórios</span>
+                            <i data-lucide="arrow-down-right" class="w-5 h-5"></i>
+                        </span>
+                    </a>
+                    
+                    <a href="#visao" class="magnetic-btn px-8 py-4 glass-ruby text-white rounded-full font-medium text-lg hover:bg-white/5 transition-all border border-crimson/30">
+                        Nossa Estratégia
+                    </a>
+                </div>
+                
+                <div class="mt-12 flex items-center justify-center lg:justify-start space-x-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-display font-bold text-gold">R$25M</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Meta de Captação</div>
+                    </div>
+                    <div class="h-12 w-px bg-gradient-to-b from-crimson to-gold"></div>
+                    <div class="text-center">
+                        <div class="text-3xl font-display font-bold text-crimson">100%</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Equity-Free</div>
+                    </div>
+                    <div class="h-12 w-px bg-gradient-to-b from-crimson to-gold"></div>
+                    <div class="text-center">
+                        <div class="text-3xl font-display font-bold text-gold">3</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Pilares ESG</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right: Video -->
+            <div class="order-1 lg:order-2">
+                <div class="video-container aspect-[9/16] max-w-md mx-auto relative group cursor-pointer" onclick="document.getElementById('heroVideo').play()">
+                    <video id="heroVideo" class="w-full h-full object-cover" loop muted playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 1920'%3E%3Crect fill='%239f1239' width='1080' height='1920'/%3E%3C/svg%3E">
+                        <source src="https://cdn.discordapp.com/attachments/123456789/123456789/sabedoria_pratica_esg.mp4" type="video/mp4">
+                    </video>
+                    
+                    <!-- Play Overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center z-10 group-hover:opacity-0 transition-opacity duration-300">
+                        <div class="w-20 h-20 rounded-full bg-crimson/80 flex items-center justify-center backdrop-blur-sm border-2 border-gold animate-glow">
+                            <i data-lucide="play" class="w-8 h-8 text-white ml-1"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative Elements -->
+                    <div class="absolute -inset-4 border border-crimson/20 rounded-3xl -z-10"></div>
+                    <div class="absolute -inset-8 border border-gold/10 rounded-3xl -z-10"></div>
+                </div>
+                
+                <p class="text-center text-xs text-gray-500 mt-4 italic">Toque para ativar o vídeo</p>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="w-6 h-6 text-crimson"></i>
+        </div>
+    </section>
 
-                <ul class="housing-features">
-                    <li>
-                        <i class="fas fa-home"></i>
-                        <div>
-                            <strong>Domos Geodésicos Sustentáveis</strong>
-                            <p>Construção rápida, econômica e ecológica para comunidades rurais e urbanas</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-tractor"></i>
-                        <div>
-                            <strong>Reforma Agrária Produtiva</strong>
-                            <p>Assentamentos com infraestrutura para agricultura familiar e agroecologia</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-handshake"></i>
-                        <div>
-                            <strong>Parceria Minha Casa Minha Vida</strong>
-                            <p>Captação junto à Caixa Econômica para projetos habitacionais estruturados</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-leaf"></i>
-                        <div>
-                            <strong>Autossuficiência Alimentar</strong>
-                            <p>Hortas comunitárias e sistemas agroflorestais integrados aos assentamentos</p>
-                        </div>
-                    </li>
-                </ul>
+    <!-- Visão Section -->
+    <section id="visao" class="py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-crimson text-sm font-bold tracking-[0.3em] uppercase mb-4 block">A Estratégia</span>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+                    O <span class="gradient-text">Valor</span> Invisível
+                </h2>
+                <p class="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
+                    No mercado financeiro, o valor é medido pelo visível. No Fundo Sabedoria Prática ESG, medimos pela <strong class="text-gold">Sabedoria Prática</strong> — um ativo que transcende o ouro fino.
+                </p>
+            </div>
 
-                <a href="#cadastro" class="btn btn-primary">
-                    <i class="fas fa-file-alt"></i> Cadastrar Projeto de Habitação
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="territory-card rounded-3xl p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-crimson/20 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-crimson to-ruby flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="gem" class="w-8 h-8 text-gold"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4">A Sabedoria como Ativo</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            "Mais preciosa é do que os rubis, e tudo o que mais possas desejar não se pode comparar a ela." Transformamos capital em <strong class="text-gold">riqueza verdadeira</strong>.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-crimson mr-2"></i>Restauração Ambiental</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-crimson mr-2"></i>Inclusão Social</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-crimson mr-2"></i>Honra na Governança</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="territory-card rounded-3xl p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gold/20 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="eye" class="w-8 h-8 text-obsidian"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4">Liderança de Olhos Abertos</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            Governança com <strong class="text-gold">integridade absoluta</strong>. Alianças acadêmicas com UNICAMP, PUC e ESPM garantem rigor técnico e inovação.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-gold mr-2"></i>Transparência máxima</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-gold mr-2"></i>Pesquisa científica</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-gold mr-2"></i>Excelência em gestão</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="territory-card rounded-3xl p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-crimson/20 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-ruby to-crimson flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="shield" class="w-8 h-8 text-gold"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4">O Vigor da Proteção</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            "As suas forças são como as do boi selvagem." Nossa rede <strong class="text-gold">Disruptivos</strong> protege o que é valioso com inovação e estratégia.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-crimson mr-2"></i>Blindagem social</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-crimson mr-2"></i>Tecnologia de ponta</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-crimson mr-2"></i>Governança ativa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Territórios Culturais Permanentes -->
+    <section id="territorios" class="py-32 relative bg-gradient-to-b from-obsidian via-ruby-dark/20 to-obsidian">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+                <div>
+                    <span class="text-crimson text-sm font-bold tracking-[0.3em] uppercase mb-4 block">A Casa que Voa</span>
+                    <h2 class="font-display text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                        Territórios <span class="gradient-text">Culturais</span><br>Permanentes
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        Não são eventos. São <strong class="text-gold">faróis na favela</strong>: pontos fixos de transformação social, cultura e geração de renda. Rodas de conversa toda terça, oficinas pra quebrar vício, atendimento pra quem precisa.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-crimson/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="sprout" class="w-6 h-6 text-crimson"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Horta Hidropônica Resiliente</h4>
+                                <p class="text-gray-400 text-sm">Alimento grátis pra quem chega sem dinheiro. Tecnologia que nem chuva mata.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="graduation-cap" class="w-6 h-6 text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Sala de Formação Cultural</h4>
+                                <p class="text-gray-400 text-sm">Teatro que denuncia, música que grava o grito virando rap, cultura que educa.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-crimson/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="rocket" class="w-6 h-6 text-crimson"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Incubadora Dupla</h4>
+                                <p class="text-gray-400 text-sm">Negócio cultural (quem canta vira produtor) e tradicional (quem costura vira marca).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-crimson to-gold rounded-3xl blur-3xl opacity-20"></div>
+                    <div class="relative glass-ruby rounded-3xl p-8 border border-crimson/30">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop&q=80" alt="Território Cultural" class="w-full h-64 object-cover rounded-2xl mb-6">
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="glass-ruby rounded-xl p-4 text-center">
+                                <i data-lucide="users" class="w-6 h-6 text-crimson mx-auto mb-2"></i>
+                                <div class="text-white font-bold">Rodas de Conversa</div>
+                                <div class="text-xs text-gray-400">Toda terça-feira</div>
+                            </div>
+                            <div class="glass-ruby rounded-xl p-4 text-center">
+                                <i data-lucide="heart-handshake" class="w-6 h-6 text-crimson mx-auto mb-2"></i>
+                                <div class="text-white font-bold">Atendimento Social</div>
+                                <div class="text-xs text-gray-400">Mulheres, LGBTQIA+, negros</div>
+                            </div>
+                            <div class="glass-ruby rounded-xl p-4 text-center">
+                                <i data-lucide="palette" class="w-6 h-6 text-gold mx-auto mb-2"></i>
+                                <div class="text-white font-bold">Oficinas Terapêuticas</div>
+                                <div class="text-xs text-gray-400">Quebra de vícios</div>
+                            </div>
+                            <div class="glass-ruby rounded-xl p-4 text-center">
+                                <i data-lucide="building-2" class="w-6 h-6 text-gold mx-auto mb-2"></i>
+                                <div class="text-white font-bold">Estrutura Fixa</div>
+                                <div class="text-xs text-gray-400">Domo, biblioteca, som</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domos Geodésicos -->
+            <div class="glass-ruby rounded-3xl p-8 md:p-12 border border-crimson/20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-crimson/10 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="font-display text-3xl font-bold text-white mb-4">Domos Geodésicos Sustentáveis</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Construção rápida, econômica e ecológica para comunidades rurais e urbanas. Parceria com empresas especializadas e integração com o <strong class="text-gold">Minha Casa Minha Vida</strong>.
+                        </p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center text-gray-300">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-crimson mr-3"></i>
+                                <span>Reforma Agrária Produtiva</span>
+                            </div>
+                            <div class="flex items-center text-gray-300">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-crimson mr-3"></i>
+                                <span>Assentamentos Autossuficientes</span>
+                            </div>
+                            <div class="flex items-center text-gray-300">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-crimson mr-3"></i>
+                                <span>Agroecologia e Preservação</span>
+                            </div>
+                            <div class="flex items-center text-gray-300">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-crimson mr-3"></i>
+                                <span>Captação via Caixa Econômica</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=400&auto=format&fit=crop&q=80" alt="Domo" class="rounded-2xl w-full h-48 object-cover">
+                        <img src="https://images.unsplash.com/photo-1449156493391-d2cfa28e468b?w=400&auto=format&fit=crop&q=80" alt="Horta" class="rounded-2xl w-full h-48 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Liderança Feminina - NOVA SEÇÃO DESTAQUE -->
+    <section id="mulheres" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-ruby-dark/30 via-obsidian to-ruby-dark/30"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-ruby border border-gold/30 mb-6">
+                    <i data-lucide="crown" class="w-4 h-4 text-gold"></i>
+                    <span class="text-gold text-xs font-bold tracking-widest uppercase">Nova Estrutura</span>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+                    Gerido por <span class="gradient-text">Mulheres</span> que Voam
+                </h2>
+                <p class="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
+                    O território só dá estrutura — elas já têm a visão. <strong class="text-gold">Mulheres líderes de comunidades e ONGs</strong> que sabem onde pousar, quem puxar e quando soltar.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Card 1 -->
+                <div class="territory-card rounded-3xl p-8 text-center group">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-crimson to-ruby flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="crown" class="w-10 h-10 text-gold"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Liderança Comunitária</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Mulheres que já voam nas comunidades. Elas conhecem o território, sabem quem precisa de ajuda e como chegar.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="territory-card rounded-3xl p-8 text-center group">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="network" class="w-10 h-10 text-obsidian"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Replicação Via Rouanet</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Territórios Culturais Permanentes replicados em escala via Lei Rouanet, Fundo Municipal e imposto direcionado.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="territory-card rounded-3xl p-8 text-center group">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-ruby to-crimson flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="scale" class="w-10 h-10 text-gold"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Autonomia Real</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Estrutura física (domo, biblioteca, som, advogado) + autonomia de gestão. Elas comandam, nós apoiamos.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Estrutura do Território Águia -->
+            <div class="glass-ruby rounded-3xl p-8 md:p-12 border border-gold/20 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-crimson via-gold to-crimson"></div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="font-display text-3xl font-bold text-white mb-6 flex items-center">
+                            <span class="w-10 h-10 rounded-full bg-crimson flex items-center justify-center mr-4">
+                                <i data-lucide="bird" class="w-5 h-5 text-gold"></i>
+                            </span>
+                            Território Águia
+                        </h3>
+                        <p class="text-gray-400 mb-8 leading-relaxed">
+                            Um novo modelo de Território Cultural gerido exclusivamente por mulheres líderes. <strong class="text-gold">Casa que voa</strong> — estrutura fixa com alma nômade, adaptando-se às necessidades da comunidade.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="shield" class="w-5 h-5 text-crimson"></i>
+                                    <span class="text-white">Atendimento à mulher que apanhou</span>
+                                </div>
+                                <span class="text-xs text-gold px-2 py-1 bg-gold/10 rounded">Proteção</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="heart" class="w-5 h-5 text-crimson"></i>
+                                    <span class="text-white">Apoio ao gay que ouviu 'anormal'</span>
+                                </div>
+                                <span class="text-xs text-gold px-2 py-1 bg-gold/10 rounded">Acolhimento</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="fist" class="w-5 h-5 text-crimson"></i>
+                                    <span class="text-white">Defesa do preto que levou injúria</span>
+                                </div>
+                                <span class="text-xs text-gold px-2 py-1 bg-gold/10 rounded">Justiça</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-crimson to-gold rounded-3xl blur-2xl opacity-20"></div>
+                        <div class="relative glass-ruby rounded-2xl p-6 border border-crimson/30">
+                            <div class="aspect-video rounded-xl overflow-hidden mb-6">
+                                <img src="https://images.unsplash.com/photo-1591848478625-de43268e6fb8?w=800&auto=format&fit=crop&q=80" alt="Mulheres líderes" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div class="p-4 bg-crimson/10 rounded-xl">
+                                    <div class="text-2xl font-display font-bold text-gold">Via Rouanet</div>
+                                    <div class="text-xs text-gray-400">Captação principal</div>
+                                </div>
+                                <div class="p-4 bg-crimson/10 rounded-xl">
+                                    <div class="text-2xl font-display font-bold text-gold">Via Município</div>
+                                    <div class="text-xs text-gray-400">Fundo Municipal</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 Pilares ESG -->
+    <section id="pilares" class="py-32 relative bg-gradient-to-b from-obsidian to-ruby-dark/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-crimson text-sm font-bold tracking-[0.3em] uppercase mb-4 block">ESG Integrado</span>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+                    Os Três <span class="gradient-text">Pilares</span>
+                </h2>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Governança -->
+                <div class="glass-ruby rounded-3xl p-8 md:p-12 border border-crimson/20 relative overflow-hidden group hover:border-gold/50 transition-colors">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl"></div>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-bold mb-4">
+                                <span>01</span>
+                                <span>GOVERNANÇA</span>
+                            </div>
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">Liderança de "Olhos Abertos"</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                Inspirados na visão de Olhos Abertos, garantimos a integridade do banco de projetos e transparência máxima. Alianças acadêmicas fortalecem o rigor técnico.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-500">
+                                <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-gold mr-2"></i>UNICAMP, PUC, ESPM</li>
+                                <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-gold mr-2"></i>Disruptivos Culturais</li>
+                                <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-gold mr-2"></i>Captadores Especializados</li>
+                            </ul>
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80" alt="Governança" class="rounded-2xl w-full h-64 object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social -->
+                <div class="glass-ruby rounded-3xl p-8 md:p-12 border border-crimson/20 relative overflow-hidden group hover:border-crimson/50 transition-colors">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-crimson/5 rounded-full blur-3xl"></div>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 md:order-1 relative">
+                            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&auto=format&fit=crop&q=80" alt="Social" class="rounded-2xl w-full h-64 object-cover">
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-crimson/10 text-crimson text-xs font-bold mb-4">
+                                <span>02</span>
+                                <span>SOCIAL</span>
+                            </div>
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">A Mão Estendida</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                O tributo torna-se semente que restaura a dignidade. Moradia social, esporte, neurociência e práticas circenses em parceria com a UNICAMP.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-500">
+                                <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-crimson mr-2"></i>Domos Geodésicos & Steel Frame</li>
+                                <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-crimson mr-2"></i>Biomecânica + Artes Circenses</li>
+                                <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-crimson mr-2"></i>Parkour, Hip-Hop, Pa Kua</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ambiental -->
+                <div class="glass-ruby rounded-3xl p-8 md:p-12 border border-crimson/20 relative overflow-hidden group hover:border-emerald-500/50 transition-colors">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl"></div>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold mb-4">
+                                <span>03</span>
+                                <span>AMBIENTAL</span>
+                            </div>
+                            <h3 class="font-display text-3xl font-bold text-white mb-4">Urbanismo Sustentável</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                Transformamos praças degradadas em ambientes de vida. Formato CEUs com bibliotecas, hortas hidropônicas e tokens sociais de reciclagem.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-500">
+                                <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-2"></i>Revitalização de Ambientes</li>
+                                <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-2"></i>Hortas Hidropônicas</li>
+                                <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-2"></i>Tokens de Reciclagem</li>
+                            </ul>
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&auto=format&fit=crop&q=80" alt="Ambiental" class="rounded-2xl w-full h-64 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hub Aberto -->
+    <section id="hub" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-crimson text-sm font-bold tracking-[0.3em] uppercase mb-4 block">Participe</span>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">
+                    Hub <span class="gradient-text">Aberto</span>
+                </h2>
+                <p class="text-gray-400 text-xl max-w-2xl mx-auto">
+                    Conecte-se ao ecossistema. Cadastre seu território, sua ONG ou descubra incentivos disponíveis.
+                </p>
+            </div>
+
+            <div class="hub-grid max-w-5xl mx-auto">
+                <a href="#" class="glass-ruby rounded-2xl p-8 text-center hover:bg-crimson/20 transition-all group border border-crimson/20 hover:border-gold/50">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-crimson to-ruby flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="map-pin" class="w-8 h-8 text-gold"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Cadastrar Território Águia</h3>
+                    <p class="text-gray-400 text-sm">Seja um ponto fixo de transformação na sua comunidade</p>
+                </a>
+
+                <a href="#" class="glass-ruby rounded-2xl p-8 text-center hover:bg-crimson/20 transition-all group border border-crimson/20 hover:border-gold/50">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="heart-handshake" class="w-8 h-8 text-obsidian"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Cadastrar ONG Parceira</h3>
+                    <p class="text-gray-400 text-sm">Junte-se à rede de implementadores</p>
+                </a>
+
+                <a href="#" class="glass-ruby rounded-2xl p-8 text-center hover:bg-crimson/20 transition-all group border border-crimson/20 hover:border-gold/50">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-ruby to-crimson flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="search" class="w-8 h-8 text-gold"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Ver Incentivos</h3>
+                    <p class="text-gray-400 text-sm">Descubra as leis de incentivo disponíveis</p>
+                </a>
+
+                <a href="#" class="glass-ruby rounded-2xl p-8 text-center hover:bg-crimson/20 transition-all group border border-crimson/20 hover:border-gold/50">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-crimson to-ruby flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="users" class="w-8 h-8 text-gold"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Seja Investidor</h3>
+                    <p class="text-gray-400 text-sm">Transforme tributos em legado</p>
                 </a>
             </div>
-
-            <div class="housing-visual">
-                <i class="fas fa-dungeon"></i>
-                <h4>Ecossistema Construtivo</h4>
-                <p>Empresas de construção de domos geodésicos, incorporadoras experientes e ONGs habilitadas trabalhando em conjunto para entrega de moradias dignas e sustentáveis.</p>
-                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1);">
-                    <p style="font-size: 0.9rem; color: var(--texto-claro); margin-bottom: 0.5rem;"><strong>Parceiros Estratégicos:</strong></p>
-                    <p style="font-size: 0.85rem; color: var(--texto-claro);">Construtoras de domos • Incorporadoras • ONGs habilitadas • Caixa Econômica</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Partnerships Section -->
-    <section id="parcerias" class="partnerships-section">
-        <div class="section-header">
-            <span class="section-tag">Ecossistema</span>
-            <h2 class="section-title">Nossa Rede de Parcerias</h2>
-            <p class="section-subtitle">Infraestrutura completa para operação e captação de recursos</p>
-        </div>
-
-        <div class="partnerships-grid">
-            <div class="partnership-card">
-                <div class="partnership-icon">
-                    <i class="fas fa-landmark"></i>
-                </div>
-                <h4>Ministério da Cultura</h4>
-                <p>Projetos em pauta para Territórios Culturais Permanentes, alinhados à Política Nacional de Cultura Viva e programas federais de fomento.</p>
-            </div>
-
-            <div class="partnership-card">
-                <div class="partnership-icon">
-                    <i class="fas fa-university"></i>
-                </div>
-                <h4>UNICAMP & Universidades</h4>
-                <p>Parceria com Neurociências do Esporte, pesquisa biomecânica e validação acadêmica dos projetos de formação e saúde.</p>
-            </div>
-
-            <div class="partnership-card">
-                <div class="partnership-icon">
-                    <i class="fas fa-hand-holding-usd"></i>
-                </div>
-                <h4>Incentiv.me</h4>
-                <p>Plataforma parceira para ampliação do escopo de captação direta com empresas e parceiros tributários, oferecendo benefício complementar.</p>
-            </div>
-        </div>
-
-        <div style="background: var(--fundo); border-radius: 20px; padding: 2.5rem; margin-top: 3rem; text-align: center;">
-            <h4 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--rubi);">
-                <i class="fas fa-network-wired" style="margin-right: 0.5rem;"></i>
-                Ecossistema Disruptivos & Disruptivos Culturais
-            </h4>
-            <p style="color: var(--texto-claro); max-width: 800px; margin: 0 auto 1.5rem;">
-                Formação de novos negócios culturais com apoio de captadores nas Leis de Incentivo. 
-                Conexão entre empreendedores, investidores e implementadores para geração de renda sustentável 
-                nas comunidades atendidas pelos Territórios Culturais Permanentes.
+    <!-- Contato -->
+    <section id="contato" class="py-32 relative bg-gradient-to-t from-ruby-dark/40 to-obsidian">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-display text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+                Restaurando lares,<br>
+                <span class="gradient-text">revitalizando cidades</span>
+            </h2>
+            
+            <p class="text-xl text-gray-400 mb-12 leading-relaxed">
+                Transformando tributos num legado de sabedoria e ciência. Entre em contato para parcerias, investimentos ou para cadastrar seu território.
             </p>
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                <span style="padding: 0.5rem 1rem; background: white; border-radius: 50px; font-size: 0.9rem;">
-                    <i class="fas fa-lightbulb" style="color: var(--ouro); margin-right: 0.5rem;"></i>Captadores Especializados
-                </span>
-                <span style="padding: 0.5rem 1rem; background: white; border-radius: 50px; font-size: 0.9rem;">
-                    <i class="fas fa-rocket" style="color: var(--esmeralda); margin-right: 0.5rem;"></i>Incubação Cultural
-                </span>
-                <span style="padding: 0.5rem 1rem; background: white; border-radius: 50px; font-size: 0.9rem;">
-                    <i class="fas fa-store" style="color: var(--azul); margin-right: 0.5rem;"></i>Marketplace de Ideias
-                </span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration Forms Section -->
-    <section id="cadastro" class="forms-section">
-        <div class="section-header">
-            <span class="section-tag">Participe</span>
-            <h2 class="section-title">Cadastre-se em Nossa Plataforma</h2>
-            <p class="section-subtitle">Junte-se ao ecossistema de Territórios Culturais Permanentes e Habitação Social</p>
-        </div>
-
-        <div class="forms-grid">
-            <!-- Project Registration Form -->
-            <div class="form-card">
-                <h3><i class="fas fa-lightbulb"></i> Cadastrar Projeto Cultural ou Social</h3>
-                <p>Tem um projeto de Território Cultural Permanente, Centro de Formação ou Habitação Social? Cadastre-se para estruturação e captação de recursos.</p>
-                
-                <form action="https://formsubmit.co/carvalhojaderson@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="Novo Cadastro de Projeto - Fundo Sabedoria Prática ESG">
-                    <input type="hidden" name="_template" value="table">
-                    
-                    <div class="form-group">
-                        <label for="projeto-nome">Nome do Projeto *</label>
-                        <input type="text" id="projeto-nome" name="Nome do Projeto" required placeholder="Ex: Território Cultural Permanente - [Cidade]">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="projeto-tipo">Tipo de Projeto *</label>
-                        <select id="projeto-tipo" name="Tipo" required>
-                            <option value="">Selecione...</option>
-                            <option value="Território Cultural Permanente">Território Cultural Permanente</option>
-                            <option value="Centro de Formação Imersiva">Centro de Formação Imersiva</option>
-                            <option value="Habitação Social">Habitação Social / Reforma Agrária</option>
-                            <option value="Centro CEU">Formato CEU (Cultura, Esporte, Lazer)</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="projeto-cidade">Cidade/Estado *</label>
-                        <input type="text" id="projeto-cidade" name="Localização" required placeholder="Ex: Juiz de Fora, MG">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="projeto-responsavel">Responsável/Proponente *</label>
-                        <input type="text" id="projeto-responsavel" name="Responsável" required placeholder="Nome completo">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="projeto-email">E-mail *</label>
-                        <input type="email" id="projeto-email" name="Email" required placeholder="seu@email.com">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="projeto-telefone">Telefone/WhatsApp *</label>
-                        <input type="tel" id="projeto-telefone" name="Telefone" required placeholder="(31) 99999-9999">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="projeto-valor">Valor Estimado de Captação (R$)</label>
-                        <input type="text" id="projeto-valor" name="Valor Estimado" placeholder="Ex: 5.000.000">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="projeto-descricao">Descrição do Projeto e Público-Alvo *</label>
-                        <textarea id="projeto-descricao" name="Descrição" required placeholder="Descreva seu projeto, atividades previstas, público beneficiado, parcerias existentes e como pretende utilizar os recursos..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="form-submit">
-                        <i class="fas fa-paper-plane"></i> Enviar Cadastro de Projeto
-                    </button>
-                </form>
-            </div>
-
-            <!-- Company/Partner Registration Form -->
-            <div class="form-card">
-                <h3><i class="fas fa-building"></i> Empresa ou Parceiro Tributário</h3>
-                <p>Empresa com saldos tributários para direcionar? Parceiro interessado em oferecer nossa plataforma como benefício? Cadastre-se aqui.</p>
-                
-                <form action="https://formsubmit.co/carvalhojaderson@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="Novo Parceiro/Empresa - Fundo Sabedoria Prática ESG">
-                    <input type="hidden" name="_template" value="table">
-                    
-                    <div class="form-group">
-                        <label for="empresa-nome">Nome da Empresa/Organização *</label>
-                        <input type="text" id="empresa-nome" name="Nome da Empresa" required placeholder="Razão Social">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="empresa-tipo">Tipo de Parceria *</label>
-                        <select id="empresa-tipo" name="Tipo de Parceria" required>
-                            <option value="">Selecione...</option>
-                            <option value="Empresa Tributária">Empresa Tributária (Investidora)</option>
-                            <option value="Parceiro Captador">Parceiro Captador</option>
-                            <option value="Construtora/Incorporadora">Construtora/Incorporadora</option>
-                            <option value="Plataforma de Incentivo">Plataforma de Incentivo Fiscal</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="empresa-cnpj">CNPJ *</label>
-                        <input type="text" id="empresa-cnpj" name="CNPJ" required placeholder="XX.XXX.XXX/0001-XX">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="empresa-responsavel">Responsável *</label>
-                        <input type="text" id="empresa-responsavel" name="Responsável" required placeholder="Nome do responsável">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="empresa-cargo">Cargo/Função *</label>
-                        <input type="text" id="empresa-cargo" name="Cargo" required placeholder="Ex: Diretor de Sustentabilidade">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="empresa-email">E-mail Corporativo *</label>
-                        <input type="email" id="empresa-email" name="Email" required placeholder="nome@empresa.com.br">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="empresa-telefone">Telefone *</label>
-                        <input type="tel" id="empresa-telefone" name="Telefone" required placeholder="(31) 99999-9999">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="empresa-interesse">Áreas de Interesse</label>
-                        <select id="empresa-interesse" name="Áreas de Interesse" multiple style="height: 100px;">
-                            <option value="Territórios Culturais">Territórios Culturais Permanentes</option>
-                            <option value="Habitação Social">Habitação Social</option>
-                            <option value="Esporte e Saúde">Esporte, Biomecânica e Neurociência</option>
-                            <option value="Formação Musical">Formação Musical</option>
-                            <option value="Cultura Chinesa">Cultura Chinesa/Pa Kua</option>
-                            <option value="Agricultura Urbana">Agricultura Urbana e Sustentabilidade</option>
-                        </select>
-                        <small style="color: var(--texto-claro); font-size: 0.8rem;">Segure Ctrl para selecionar múltiplas opções</small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="empresa-mensagem">Mensagem/Proposta</label>
-                        <textarea id="empresa-mensagem" name="Mensagem" placeholder="Descreva sua proposta de parceria, interesse específico ou como deseja contribuir..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="form-submit">
-                        <i class="fas fa-paper-plane"></i> Cadastrar Parceiro
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contato" class="contact-section">
-        <div class="contact-content">
-            <span class="section-tag" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.3);">Conecte-se</span>
-            <h2>Fale Conosco</h2>
-            <p>
-                Entre em contato para mais informações sobre Territórios Culturais Permanentes, 
-                Habitação Social, parcerias estratégicas ou captação de recursos via Lei de Incentivo.
-            </p>
-
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+                <a href="mailto:carvalhojaderson@gmail.com" class="magnetic-btn px-10 py-5 bg-gradient-to-r from-crimson to-ruby text-white rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-crimson/50 transition-all flex items-center justify-center space-x-3">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
                     <span>carvalhojaderson@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
+                </a>
+                
+                <a href="https://wa.me/5531982510633" class="magnetic-btn px-10 py-5 glass-ruby text-white rounded-full font-bold text-lg hover:bg-white/5 transition-all flex items-center justify-center space-x-3 border border-crimson/30">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
                     <span>(31) 98251-0633</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Belo Horizonte, MG - Brasil</span>
+                </a>
+            </div>
+            
+            <div class="glass-ruby rounded-2xl p-8 inline-block border border-gold/20">
+                <p class="text-gold font-serif italic text-lg mb-4">"Sabedoria Prática ESG"</p>
+                <div class="flex items-center justify-center space-x-6 text-sm text-gray-400">
+                    <span>Belo Horizonte, MG</span>
+                    <span class="w-1 h-1 bg-crimson rounded-full"></span>
+                    <span>Brasil</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div>
-                <div class="footer-brand">
-                    <div class="logo-icon">
-                        <i class="fas fa-gem"></i>
+    <footer class="border-t border-crimson/20 bg-obsidian py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="beast-frame w-12 h-12 flex items-center justify-center">
+                            <i data-lucide="gem" class="text-gold w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <span class="text-xl font-display font-bold text-white block tracking-wider">SABEDORIA</span>
+                            <span class="text-xs text-crimson font-bold tracking-widest">PRÁTICA ESG</span>
+                        </div>
                     </div>
-                    Fundo Sabedoria Prática ESG
+                    <p class="text-gray-500 mb-6 max-w-md">
+                        Transformando obrigações tributárias em legado cultural e desenvolvimento humano através de Territórios Culturais Permanentes.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass-ruby flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold/50 transition-all">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-ruby flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold/50 transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-ruby flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold/50 transition-all">
+                            <i data-lucide="youtube" class="w-5 h-5"></i>
+                        </a>
+                    </div>
                 </div>
-                <p class="footer-desc">
-                    Plataforma de captação via Lei de Incentivo para Territórios Culturais Permanentes, 
-                    Centros de Formação Imersiva e Habitação Social. Transformando obrigações tributárias 
-                    em legado cultural e desenvolvimento comunitário.
-                </p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="https://wa.me/5531982510633"><i class="fab fa-whatsapp"></i></a>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-display">Navegação</h4>
+                    <ul class="space-y-3 text-gray-500">
+                        <li><a href="#visao" class="hover:text-gold transition-colors">A Visão</a></li>
+                        <li><a href="#territorios" class="hover:text-gold transition-colors">Territórios</a></li>
+                        <li><a href="#mulheres" class="hover:text-gold transition-colors">Liderança Feminina</a></li>
+                        <li><a href="#pilares" class="hover:text-gold transition-colors">3 Pilares</a></li>
+                        <li><a href="#hub" class="hover:text-gold transition-colors">Hub Aberto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-display">Parceiros</h4>
+                    <ul class="space-y-3 text-gray-500 text-sm">
+                        <li>Ministério da Cultura</li>
+                        <li>UNICAMP</li>
+                        <li>PUC</li>
+                        <li>ESPM</li>
+                        <li>Incentiv.me</li>
+                        <li>Ecossistema Disruptivos</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="footer-column">
-                <h4>Projetos</h4>
-                <ul>
-                    <li><a href="#projetos">Territórios Culturais</a></li>
-                    <li><a href="#projetos">Formação Imersiva</a></li>
-                    <li><a href="#habitacao">Habitação Social</a></li>
-                    <li><a href="#habitacao">Reforma Agrária</a></li>
-                </ul>
+            <div class="border-t border-crimson/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 text-sm">© 2025 Fundo Sabedoria Prática ESG. Todos os direitos reservados.</p>
+                <p class="text-gray-600 text-sm mt-4 md:mt-0 font-display">O Legado da Virtude</p>
             </div>
-            
-            <div class="footer-column">
-                <h4>Parcerias</h4>
-                <ul>
-                    <li><a href="#parcerias">Ministério da Cultura</a></li>
-                    <li><a href="#parcerias">UNICAMP</a></li>
-                    <li><a href="#parcerias">Incentiv.me</a></li>
-                    <li><a href="#parcerias">Ecossistema Disruptivos</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Contato</h4>
-                <ul>
-                    <li><a href="mailto:carvalhojaderson@gmail.com">carvalhojaderson@gmail.com</a></li>
-                    <li><a href="tel:+5531982510633">(31) 98251-0633</a></li>
-                    <li><a href="#">Belo Horizonte, MG</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Fundo Sabedoria Prática ESG. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(249, 250, 251, 0.98)';
-                navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.background = 'rgba(249, 250, 251, 0.95)';
-                navbar.style.boxShadow = 'none';
-            }
+        // Initialize Lucide
+        lucide.createIcons();
+
+        // Custom Cursor
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+        
+        document.querySelectorAll('a, button, .territory-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
         });
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        gsap.from('.reveal-text', {
+            y: 100,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power4.out"
+        });
+
+        // Counter Animation
+        document.querySelectorAll('.counter').forEach(counter => {
+            const target = parseFloat(counter.dataset.target);
+            const isDecimal = counter.dataset.decimal === 'true';
+            
+            ScrollTrigger.create({
+                trigger: counter,
+                start: "top 85%",
+                once: true,
+                onEnter: () => {
+                    gsap.to(counter, {
+                        innerHTML: target,
+                        duration: 2,
+                        snap: { innerHTML: isDecimal ? 0.1 : 1 },
+                        ease: "power2.out",
+                        onUpdate: function() {
+                            counter.innerHTML = isDecimal ? 
+                                parseFloat(this.targets()[0].innerHTML).toFixed(1) : 
+                                Math.ceil(this.targets()[0].innerHTML);
+                        }
                     });
                 }
             });
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Scroll Reveal
+        gsap.utils.toArray('.territory-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: "power3.out"
+            });
+        });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        // Mobile Menu
+        const menuToggle = document.getElementById('menuToggle');
+        const menuMobile = document.querySelector('.menu-mobile');
+        
+        menuToggle.addEventListener('click', () => {
+            menuMobile.classList.toggle('active');
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-obsidian/90', 'backdrop-blur-md');
+            } else {
+                navbar.classList.remove('bg-obsidian/90', 'backdrop-blur-md');
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    menuMobile.classList.remove('active');
                 }
             });
-        }, observerOptions);
+        });
 
-        // Observe elements
-        document.querySelectorAll('.project-card, .partnership-card, .form-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
+        // Magnetic Buttons
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
         });
     </script>
-
 </body>
 </html>
