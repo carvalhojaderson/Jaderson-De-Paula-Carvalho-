@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundo Sabedoria Prática ESG | Banco de Investimentos Orientado a Impacto</title>
+    <title>Fundo Sabedoria Prática ESG | Territórios Culturais Permanentes</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -468,77 +468,6 @@
             }
         }
 
-        /* Video Placeholder Section */
-        .video-section {
-            padding: 4rem 5%;
-            background: white;
-            text-align: center;
-        }
-
-        .video-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
-        }
-
-        .video-placeholder {
-            aspect-ratio: 16/9;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            position: relative;
-        }
-
-        .video-placeholder::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(155, 17, 30, 0.2) 0%, transparent 70%);
-        }
-
-        .play-button {
-            width: 100px;
-            height: 100px;
-            background: var(--gradient-rubi);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 10px 40px rgba(155, 17, 30, 0.4);
-            position: relative;
-            z-index: 2;
-        }
-
-        .play-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 50px rgba(155, 17, 30, 0.5);
-        }
-
-        .video-title {
-            margin-top: 2rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
-        }
-
-        .video-subtitle {
-            margin-top: 0.5rem;
-            color: rgba(255,255,255,0.7);
-            position: relative;
-            z-index: 2;
-        }
-
         /* Stats Bar */
         .stats-bar {
             display: flex;
@@ -617,242 +546,8 @@
             margin: 0 auto;
         }
 
-        /* Areas Grid */
-        .areas-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .area-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .area-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .area-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
-        }
-
-        .area-card:nth-child(1) .area-icon { background: rgba(155, 17, 30, 0.1); color: var(--rubi); }
-        .area-card:nth-child(2) .area-icon { background: rgba(16, 185, 129, 0.1); color: var(--esmeralda); }
-        .area-card:nth-child(3) .area-icon { background: rgba(15, 82, 186, 0.1); color: var(--azul); }
-        .area-card:nth-child(4) .area-icon { background: rgba(212, 160, 23, 0.1); color: var(--ouro); }
-
-        .area-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .area-card p {
-            color: var(--texto-claro);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
-        /* Ecosystem Partners */
-        .partners-section {
-            background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
-            border-radius: 30px;
-            padding: 4rem;
-            margin: 4rem 0;
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .partner-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s;
-            border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .partner-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-rubi);
-            transform: scaleX(0);
-            transition: transform 0.4s;
-        }
-
-        .partner-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .partner-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .partner-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .partner-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .partner-card:nth-child(1) .partner-icon { background: var(--gradient-rubi); }
-        .partner-card:nth-child(2) .partner-icon { background: var(--gradient-ouro); color: var(--texto); }
-        .partner-card:nth-child(3) .partner-icon { background: linear-gradient(135deg, #9966CC 0%, #7C3AED 100%); }
-        .partner-card:nth-child(4) .partner-icon { background: var(--gradient-esg); }
-        .partner-card:nth-child(5) .partner-icon { background: linear-gradient(135deg, #0F52BA 0%, #1E40AF 100%); }
-        .partner-card:nth-child(6) .partner-icon { background: linear-gradient(135deg, #6B7280 0%, #374151 100%); }
-
-        .partner-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .partner-tag {
-            font-size: 0.75rem;
-            color: var(--texto-claro);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .partner-card p {
-            color: var(--texto-claro);
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .partner-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--rubi);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: gap 0.3s;
-        }
-
-        .partner-link:hover {
-            gap: 0.75rem;
-        }
-
-        /* Principles Grid */
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .principle-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .principle-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-rubi);
-            transform: scaleX(0);
-            transition: transform 0.4s;
-        }
-
-        .principle-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .principle-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .principle-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .principle-card.env .principle-icon {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--esmeralda);
-        }
-
-        .principle-card.social .principle-icon {
-            background: rgba(15, 82, 186, 0.1);
-            color: var(--azul);
-        }
-
-        .principle-card.gov .principle-icon {
-            background: rgba(107, 114, 128, 0.1);
-            color: #6B7280;
-        }
-
-        .principle-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--texto);
-        }
-
-        .principle-card p {
-            color: var(--texto-claro);
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
-        /* ESG Investment Section */
-        .esg-section {
+        /* Active Projects */
+        .projects-highlight {
             background: white;
             border-radius: 30px;
             padding: 4rem;
@@ -860,319 +555,391 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
         }
 
-        .esg-content {
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--fundo);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card.featured {
+            grid-column: span 2;
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--gradient-rubi);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+        }
+
+        .project-card:nth-child(2) .project-image {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+
+        .project-card:nth-child(3) .project-image {
+            background: linear-gradient(135deg, #0F52BA 0%, #1E40AF 100%);
+        }
+
+        .project-card:nth-child(4) .project-image {
+            background: linear-gradient(135deg, #9966CC 0%, #7C3AED 100%);
+        }
+
+        .project-card:nth-child(5) .project-image {
+            background: linear-gradient(135deg, #D4A017 0%, #E5B84A 100%);
+            color: var(--texto);
+        }
+
+        .project-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--esmeralda);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-area {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(155, 17, 30, 0.1);
+            color: var(--rubi);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project-location {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.85rem;
+            color: var(--texto-claro);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--texto-claro);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--texto-claro);
+        }
+
+        .project-features li i {
+            color: var(--esmeralda);
+            font-size: 0.8rem;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .project-value {
+            font-weight: 700;
+            color: var(--rubi);
+            font-size: 1.2rem;
+        }
+
+        .project-partner {
+            font-size: 0.8rem;
+            color: var(--texto-claro);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Housing Section */
+        .housing-section {
+            background: linear-gradient(135deg, rgba(155, 17, 30, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+        }
+
+        .housing-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .esg-text h3 {
+        .housing-text h3 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
-            background: var(--gradient-rubi);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--rubi);
         }
 
-        .esg-text > p {
+        .housing-text > p {
             color: var(--texto-claro);
             margin-bottom: 1.5rem;
             line-height: 1.8;
-            font-size: 1.05rem;
         }
 
-        .esg-benefits {
+        .housing-features {
             list-style: none;
             margin: 2rem 0;
         }
 
-        .esg-benefits li {
+        .housing-features li {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
             margin-bottom: 1.25rem;
             padding: 1rem;
-            background: rgba(155, 17, 30, 0.03);
+            background: white;
             border-radius: 12px;
-            border-left: 3px solid var(--rubi);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .esg-benefits li i {
+        .housing-features li i {
             color: var(--rubi);
             font-size: 1.2rem;
             margin-top: 0.2rem;
         }
 
-        .esg-benefits li strong {
+        .housing-features li strong {
             display: block;
             margin-bottom: 0.25rem;
             color: var(--texto);
         }
 
-        .esg-benefits li p {
+        .housing-features li p {
             font-size: 0.9rem;
             color: var(--texto-claro);
             margin: 0;
         }
 
-        .esg-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 400px;
+        .housing-visual {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
         }
 
-        .esg-circle {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: var(--gradient-rubi);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            box-shadow: 0 20px 60px rgba(155, 17, 30, 0.3);
-            position: relative;
-            z-index: 2;
+        .housing-visual i {
+            font-size: 5rem;
+            color: var(--rubi);
+            margin-bottom: 1.5rem;
         }
 
-        .esg-circle i {
-            font-size: 3.5rem;
+        .housing-visual h4 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        .esg-circle h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .esg-circle p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-            text-align: center;
-        }
-
-        .esg-orbit-visual {
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            border: 2px dashed rgba(16, 185, 129, 0.3);
-            border-radius: 50%;
-            animation: rotate 20s linear infinite;
-        }
-
-        .esg-badges {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .esg-badge-float {
-            position: absolute;
-            background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .badge-env { top: 10%; left: 0; color: var(--esmeralda); border: 1px solid rgba(16, 185, 129, 0.3); }
-        .badge-social { top: 50%; right: -20px; transform: translateY(-50%); color: var(--azul); border: 1px solid rgba(15, 82, 186, 0.3); }
-        .badge-gov { bottom: 10%; left: 10%; color: #6B7280; border: 1px solid rgba(107, 114, 128, 0.3); }
-
-        /* Methodology */
-        .methodology {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 1rem;
-            margin-top: 3rem;
-        }
-
-        .method-item {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            position: relative;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .method-item:not(:last-child)::after {
-            content: '→';
-            position: absolute;
-            right: -0.6rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--rubi);
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .method-number {
-            width: 45px;
-            height: 45px;
-            background: var(--gradient-rubi);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin: 0 auto 1rem;
-        }
-
-        .method-item h4 {
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .method-item p {
-            font-size: 0.8rem;
+        .housing-visual p {
             color: var(--texto-claro);
-            line-height: 1.5;
+            margin-bottom: 1.5rem;
         }
 
-        /* Challenges & Solutions */
-        .challenges-section {
-            background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+        /* Partnerships Section */
+        .partnerships-section {
+            background: white;
             border-radius: 30px;
             padding: 4rem;
             margin: 4rem 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
         }
 
-        .challenges-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .challenge-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .challenge-box.desafios h3 { color: var(--rubi); }
-        .challenge-box.solucoes h3 { color: var(--esmeralda); }
-
-        .list-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1.25rem;
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .list-icon {
-            font-size: 1.2rem;
-            margin-top: 0.2rem;
-        }
-
-        .challenge-box.desafios .list-icon { color: var(--rubi); }
-        .challenge-box.solucoes .list-icon { color: var(--esmeralda); }
-
-        .list-item strong {
-            display: block;
-            margin-bottom: 0.25rem;
-            color: var(--texto);
-            font-size: 0.95rem;
-        }
-
-        .list-item p {
-            font-size: 0.85rem;
-            color: var(--texto-claro);
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* Vision Section */
-        .vision-cards {
+        .partnerships-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .vision-card {
-            background: white;
+        .partnership-card {
+            background: var(--fundo);
             border-radius: 20px;
-            padding: 2.5rem 2rem;
+            padding: 2rem;
             text-align: center;
-            border: 1px solid rgba(0,0,0,0.05);
             transition: all 0.3s;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        .vision-card:hover {
+        .partnership-card:hover {
             transform: translateY(-5px);
-            border-color: var(--rubi);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
         }
 
-        .vision-icon {
+        .partnership-icon {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin: 0 auto 1.5rem;
             color: white;
         }
 
-        .vision-card:nth-child(1) .vision-icon { background: var(--gradient-rubi); }
-        .vision-card:nth-child(2) .vision-icon { background: var(--gradient-ouro); color: var(--texto); }
-        .vision-card:nth-child(3) .vision-icon { background: var(--gradient-esg); }
+        .partnership-card:nth-child(1) .partnership-icon { background: var(--gradient-rubi); }
+        .partnership-card:nth-child(2) .partnership-icon { background: var(--gradient-ouro); color: var(--texto); }
+        .partnership-card:nth-child(3) .partnership-icon { background: var(--gradient-esg); }
 
-        .vision-card h3 {
-            font-size: 1.3rem;
+        .partnership-card h4 {
+            font-size: 1.2rem;
             margin-bottom: 0.75rem;
         }
 
-        .vision-card p {
-            font-size: 0.95rem;
+        .partnership-card p {
+            font-size: 0.9rem;
             color: var(--texto-claro);
             line-height: 1.7;
         }
 
-        .values-tags {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+        /* Forms Section */
+        .forms-section {
+            background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
         }
 
-        .value-tag {
-            padding: 0.75rem 1.5rem;
+        .forms-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .form-card {
             background: white;
-            border: 1px solid rgba(155, 17, 30, 0.2);
-            border-radius: 50px;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .form-card h3 i {
+            color: var(--rubi);
+        }
+
+        .form-card > p {
+            color: var(--texto-claro);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
             font-size: 0.9rem;
             color: var(--texto);
-            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
             transition: all 0.3s;
         }
 
-        .value-tag:hover {
-            background: var(--rubi);
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--rubi);
+            box-shadow: 0 0 0 3px rgba(155, 17, 30, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradient-rubi);
             color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .form-submit:hover {
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(155, 17, 30, 0.3);
         }
 
         /* Contact Section */
@@ -1215,66 +982,12 @@
             margin: 0 auto 3rem;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            transition: all 0.3s;
-        }
-
-        .contact-card:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-5px);
-        }
-
-        .contact-card i {
-            font-size: 2.5rem;
-            color: var(--ouro);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .contact-card > p {
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .contact-card a {
-            color: var(--ouro);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s;
-        }
-
-        .contact-card a:hover {
-            gap: 0.75rem;
-        }
-
-        .contact-direct {
+        .contact-info {
             display: flex;
             justify-content: center;
             gap: 3rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 3rem;
         }
 
         .contact-item {
@@ -1282,11 +995,12 @@
             align-items: center;
             gap: 0.75rem;
             color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
         }
 
         .contact-item i {
             color: var(--ouro);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         /* Footer */
@@ -1412,30 +1126,20 @@
                 transform: scale(0.8);
             }
 
-            .areas-grid,
-            .partners-grid,
-            .principles-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .projects-grid,
-            .vision-cards {
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            .methodology {
-                grid-template-columns: repeat(3, 1fr);
+            .project-card.featured {
+                grid-column: span 1;
             }
 
-            .method-item:nth-child(3)::after { content: ''; }
-            .method-item:nth-child(6)::after { content: ''; }
-
-            .esg-content,
-            .challenges-grid {
+            .housing-content,
+            .forms-grid {
                 grid-template-columns: 1fr;
             }
 
-            .contact-grid {
+            .partnerships-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1446,20 +1150,6 @@
         }
 
         @media (max-width: 640px) {
-            .areas-grid,
-            .partners-grid,
-            .principles-grid,
-            .methodology {
-                grid-template-columns: 1fr;
-            }
-
-            .method-item::after {
-                content: '↓' !important;
-                right: 50% !important;
-                top: 100% !important;
-                transform: translateX(50%) !important;
-            }
-
             .stats-bar {
                 flex-direction: column;
                 transform: translateY(-30%);
@@ -1477,7 +1167,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .contact-direct {
+            .contact-info {
                 flex-direction: column;
                 gap: 1rem;
             }
@@ -1495,13 +1185,13 @@
             Fundo Sabedoria Prática ESG
         </a>
         <ul class="nav-links">
-            <li><a href="#areas">Áreas de Atuação</a></li>
-            <li><a href="#ecossistema">Ecossistema</a></li>
-            <li><a href="#principios">Princípios</a></li>
-            <li><a href="#investimento">Investimento</a></li>
+            <li><a href="#projetos">Projetos em Captação</a></li>
+            <li><a href="#habitacao">Habitação</a></li>
+            <li><a href="#parcerias">Parcerias</a></li>
+            <li><a href="#cadastro">Cadastre-se</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
-        <a href="#contato" class="nav-cta">Seja Parceiro</a>
+        <a href="#cadastro" class="nav-cta">Cadastrar Projeto</a>
     </nav>
 
     <!-- Hero Section -->
@@ -1510,24 +1200,24 @@
             <div class="hero-text">
                 <div class="hero-badge">
                     <i class="fas fa-crown"></i>
-                    Banco de Investimentos Orientado a Impacto
+                    Territórios Culturais Permanentes
                 </div>
                 <h1>
                     Fundo Sabedoria Prática ESG
-                    <span class="highlight">Transformando Impostos em Legado</span>
+                    <span class="highlight">Formação, Cultura e Habitação</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Canalizamos saldos tributários e incentivos fiscais de empresas para financiar projetos sociais de alto impacto em habitação, saúde, esportes e alimentação saudável.
+                    Plataforma aberta de captação via Lei de Incentivo para Territórios Culturais Permanentes, Centros de Formação Imersiva e Habitação Social com Reforma Agrária.
                 </p>
                 <p class="hero-description">
-                    Como a sabedoria prática que excede o valor dos rubis, nosso fundo identifica, estrutura e executa investimentos que recuperam terras, dignificam pessoas e estabelecem governança ética — gerando retorno socioambiental e financeiro simultâneo.
+                    Estruturamos projetos de impacto em parceria com Ministério da Cultura, universidades (UNICAMP), empresas construtoras de domos geodésicos e plataformas como Incentiv.me. Nosso ecossistema integra formação cultural, saúde biomecânica, agricultura sustentável e moradia digna.
                 </p>
                 <div class="hero-cta">
-                    <a href="#investimento" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> Proposta ESG
+                    <a href="#projetos" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Ver Projetos
                     </a>
-                    <a href="#ecossistema" class="btn btn-secondary">
-                        <i class="fas fa-network-wired"></i> Ecossistema
+                    <a href="#habitacao" class="btn btn-secondary">
+                        <i class="fas fa-home"></i> Habitação Social
                     </a>
                 </div>
             </div>
@@ -1551,40 +1241,19 @@
         </div>
     </section>
 
-    <!-- Video Placeholder Section -->
-    <section class="video-section">
-        <div class="video-container">
-            <div class="video-placeholder">
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-                <h3 class="video-title">Assista à Nossa História</h3>
-                <p class="video-subtitle">Como transformamos obrigações tributárias em oportunidades de desenvolvimento humano</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Stats Bar -->
     <div class="stats-bar">
         <div class="stat-item">
-            <span class="stat-number">R$50M+</span>
-            <span class="stat-label">Em Captação</span>
+            <span class="stat-number">5+</span>
+            <span class="stat-label">Territórios Culturais</span>
         </div>
         <div class="stat-item">
-            <span class="stat-number">35+</span>
-            <span class="stat-label">Projetos Ativos</span>
+            <span class="stat-number">Aberto</span>
+            <span class="stat-label">Para Captação</span>
         </div>
         <div class="stat-item">
-            <span class="stat-number">120+</span>
-            <span class="stat-label">Empresas Parceiras</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">2.5M</span>
-            <span class="stat-label">Vidas Impactadas</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">15+</span>
-            <span class="stat-label">Instituições</span>
+            <span class="stat-number">R$25M</span>
+            <span class="stat-label">Meta de Captação</span>
         </div>
         <div class="stat-item">
             <span class="stat-number">100%</span>
@@ -1592,413 +1261,404 @@
         </div>
     </div>
 
-    <!-- Areas Section -->
-    <section id="areas">
+    <!-- Active Projects Section -->
+    <section id="projetos" class="projects-highlight">
         <div class="section-header">
-            <span class="section-tag">Nosso Foco</span>
-            <h2 class="section-title">Quatro Áreas de Transformação</h2>
-            <p class="section-subtitle">Investimentos estruturados para gerar impacto mensurável nos pilares fundamentais do desenvolvimento humano</p>
+            <span class="section-tag">Portfólio</span>
+            <h2 class="section-title">Projetos em Captação</h2>
+            <p class="section-subtitle">Territórios Culturais Permanentes e Centros de Formação Imersiva abertos para investimento via Lei de Incentivo</p>
         </div>
 
-        <div class="areas-grid">
-            <div class="area-card">
-                <div class="area-icon">
-                    <i class="fas fa-home"></i>
+        <div class="projects-grid">
+            <!-- Project 1: Juiz de Fora -->
+            <div class="project-card featured">
+                <div class="project-image">
+                    <i class="fas fa-film"></i>
+                    <span class="project-status">Em Captação</span>
                 </div>
-                <h3>Habitação Digna</h3>
-                <p>Programas de moradia acessível e urbanização sustentável, transformando janelas tributárias em lares seguros para famílias vulneráveis.</p>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-area">Território Cultural Permanente</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Juiz de Fora, MG</span>
+                    </div>
+                    <h3>Território Cultural Permanente - Audiovisual e Games</h3>
+                    <p>Centro de formação imersiva em audiovisual, games e economia criativa. Estrutura completa para produção de conteúdo, desenvolvimento de jogos e formação de multiplicadores culturais com foco em geração de renda.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Estúdios de gravação e edição</li>
+                        <li><i class="fas fa-check"></i> Laboratório de desenvolvimento de games</li>
+                        <li><i class="fas fa-check"></i> Residência artística</li>
+                        <li><i class="fas fa-check"></i> Formação de multiplicadores</li>
+                    </ul>
+                    <div class="project-meta">
+                        <span class="project-value">R$ 6M</span>
+                        <span class="project-partner"><i class="fas fa-handshake"></i> Ministério da Cultura</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="area-card">
-                <div class="area-icon">
-                    <i class="fas fa-heartbeat"></i>
-                </div>
-                <h3>Saúde Preventiva</h3>
-                <p>Unidades de atenção básica ampliadas, telemedicina e programas de prevenção, financiados via direcionamento estratégico de impostos.</p>
-            </div>
-
-            <div class="area-card">
-                <div class="area-icon">
+            <!-- Project 2: Campinas -->
+            <div class="project-card">
+                <div class="project-image">
                     <i class="fas fa-running"></i>
+                    <span class="project-status">Em Captação</span>
                 </div>
-                <h3>Esporte e Lazer</h3>
-                <p>Infraestrutura esportiva acessível em comunidades, promovendo saúde, inclusão social e desenvolvimento de talentos.</p>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-area">Esporte e Neurociência</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Campinas, SP</span>
+                    </div>
+                    <h3>Biomecânica e Artes Circenses</h3>
+                    <p>Centro de sobrevivência urbana integrando parkour, circo, hip-hop, krav maga e arqueria biomecânica. Parceria com UNICAMP - Neurociências do Esporte e Cultura do Corpo como território de cultura viva e saúde.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Pesquisa biomecânica aplicada</li>
+                        <li><i class="fas fa-check"></i> Formação em artes circenses</li>
+                        <li><i class="fas fa-check"></i> Parceria UNICAMP</li>
+                    </ul>
+                    <div class="project-meta">
+                        <span class="project-value">R$ 4M</span>
+                        <span class="project-partner"><i class="fas fa-university"></i> UNICAMP</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="area-card">
-                <div class="area-icon">
-                    <i class="fas fa-apple-alt"></i>
+            <!-- Project 3: Zona Leste SP -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-music"></i>
+                    <span class="project-status">Em Captação</span>
                 </div>
-                <h3>Alimentação Saudável</h3>
-                <p>Hortas comunitárias, educação nutricional e acesso a alimentos frescos em escolas e comunidades vulneráveis.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section id="ecossistema" class="partners-section">
-        <div class="section-header">
-            <span class="section-tag">Rede de Impacto</span>
-            <h2 class="section-title">Nosso Ecossistema de Parceiros</h2>
-            <p class="section-subtitle">Uma rede viva de organizações conectadas para multiplicar o impacto em escala nacional</p>
-        </div>
-
-        <div class="partners-grid">
-            <div class="partner-card">
-                <div class="partner-header">
-                    <div class="partner-icon">
-                        <i class="fas fa-lightbulb"></i>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-area">Música e Difusão</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Zona Leste, SP</span>
                     </div>
-                    <div>
-                        <h4>Ecossistema Disruptivos</h4>
-                        <span class="partner-tag">Inovação</span>
+                    <h3>Centro de Formação Musical Imersivo</h3>
+                    <p>Espaço de formação e difusão musical para jovens da periferia, com instrumentos, estúdios e produção de eventos. Transformando vidas através da música e geração de oportunidades no mercado cultural.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Aulas de instrumentos</li>
+                        <li><i class="fas fa-check"></i> Produção musical</li>
+                        <li><i class="fas fa-check"></i> Eventos comunitários</li>
+                    </ul>
+                    <div class="project-meta">
+                        <span class="project-value">R$ 3M</span>
+                        <span class="project-partner"><i class="fas fa-landmark"></i> Política Nacional Cultura Viva</span>
                     </div>
                 </div>
-                <p>Ambiente colaborativo para ideias disruptivas com Inteligência Cristal (IA estratégica), incubação equity-free e Marketplace de Ideias. Parcerias com ESPM, PUC Angels e UNICAMP.</p>
-                <a href="#" class="partner-link">Acessar Plataforma <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="partner-card">
-                <div class="partner-header">
-                    <div class="partner-icon">
-                        <i class="fas fa-palette"></i>
+            <!-- Project 4: Curitiba -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-yin-yang"></i>
+                    <span class="project-status">Em Captação</span>
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-area">Cultura Chinesa</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Curitiba, PR</span>
                     </div>
-                    <div>
-                        <h4>Disruptivos Culturais</h4>
-                        <span class="partner-tag">Cultura</span>
+                    <h3>Centro de Cultura Pa Kua</h3>
+                    <p>Centro imersivo de formação e difusão nas 5 modalidades de Pa Kua (arte marcial, medicina chinesa, feng shui, filosofia e chi kung). Espaço de bem-estar, saúde integrativa e intercâmbio cultural.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> 5 modalidades de formação</li>
+                        <li><i class="fas fa-check"></i> Atendimentos terapêuticos</li>
+                        <li><i class="fas fa-check"></i> Eventos de difusão cultural</li>
+                    </ul>
+                    <div class="project-meta">
+                        <span class="project-value">R$ 2.5M</span>
+                        <span class="project-partner"><i class="fas fa-globe-asia"></i> Federação Internacional Pa Kua</span>
                     </div>
                 </div>
-                <p>Programa de incubação cultural no Brasil Criativo. Farming cultural, workshops de branding e precificação, inventário digital para artistas, com lançamento na COP30/FreeZone.</p>
-                <a href="#" class="partner-link">Explorar Cultura <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="partner-card">
-                <div class="partner-header">
-                    <div class="partner-icon">
-                        <i class="fas fa-landmark"></i>
+            <!-- Project 5: Formatos CEUs -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-book-reader"></i>
+                    <span class="project-status">Em Captação</span>
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-area">Formato CEUs</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Múltiplas Localidades</span>
                     </div>
-                    <div>
-                        <h4>Empower Minds</h4>
-                        <span class="partner-tag">GovTech / Educação</span>
+                    <h3>Centros de Formação Imersiva Multiuso</h3>
+                    <p>Centros no formato CEUs em locais com bibliotecas, integrando moradia de formação para multiplicadores, hortas hidropônicas, tokens sociais de reciclagem e empreendedorismo cultural.</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Moradia para formadores</li>
+                        <li><i class="fas fa-check"></i> Hortas hidropônicas comunitárias</li>
+                        <li><i class="fas fa-check"></i> Tokens de reciclagem</li>
+                        <li><i class="fas fa-check"></i> Bibliotecas acessíveis</li>
+                    </ul>
+                    <div class="project-meta">
+                        <span class="project-value">R$ 9.5M</span>
+                        <span class="project-partner"><i class="fas fa-network-wired"></i> Ecossistema Disruptivos</span>
                     </div>
                 </div>
-                <p>Gestão de ecossistemas de tecnologia social junto ao poder público. Articulação com secretarias e governos para captação de recursos, políticas públicas e inovação educacional.</p>
-                <a href="#" class="partner-link">Ver Vídeo <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="partner-card">
-                <div class="partner-header">
-                    <div class="partner-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div>
-                        <h4>Febraec</h4>
-                        <span class="partner-tag">Consultoria</span>
-                    </div>
-                </div>
-                <p>Federação Brasileira das Empresas de Consultoria. Consultor em inovação para startups de impacto, trabalhando com diretoria executiva e rede nacional. Assumindo diretoria em 2026.</p>
-                <a href="#" class="partner-link">Visitar Site <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="partner-card">
-                <div class="partner-header">
-                    <div class="partner-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <div>
-                        <h4>ONG Rede Afro</h4>
-                        <span class="partner-tag">Impacto Social</span>
-                    </div>
-                </div>
-                <p>Gestão de projetos de aplicação social focados em inclusão afro-brasileira, inovação social com saberes ancestrais, educação antirracista e sustentabilidade cultural.</p>
-                <a href="#" class="partner-link">Conhecer <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="partner-card">
-                <div class="partner-header">
-                    <div class="partner-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <div>
-                        <h4>Marketplace de Ideias</h4>
-                        <span class="partner-tag">Inovação</span>
-                    </div>
-                </div>
-                <p>Plataforma showcase de propósitos e projetos disruptivos. Conectando inventores, investidores e implementadores em um ecossistema de trading de ideias com impacto.</p>
-                <a href="#" class="partner-link">Explorar <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Principles Section -->
-    <section id="principios">
-        <div class="section-header">
-            <span class="section-tag">Nossa Base</span>
-            <h2 class="section-title">Três Pilares de Atuação</h2>
-            <p class="section-subtitle">Cada investimento é estruturado para gerar impacto real e mensurável nos três pilares fundamentais do ESG</p>
-        </div>
-
-        <div class="principles-grid">
-            <div class="principle-card env">
-                <div class="principle-icon">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h3>Ambiental</h3>
-                <p>Recuperação de solos degradados, reflorestamento, agricultura regenerativa e preservação de biodiversidade. Removemos os "gafanhotos" da degradação ambiental e restituímos anos de produtividade perdidos.</p>
-            </div>
-
-            <div class="principle-card social">
-                <div class="principle-icon">
-                    <i class="fas fa-hands-helping"></i>
-                </div>
-                <h3>Social</h3>
-                <p>Inclusão produtiva, educação tecnológica, cultura e geração de renda em comunidades vulneráveis. Estendemos a mão ao necessitado, transformando exclusão em dignidade e oportunidade.</p>
-            </div>
-
-            <div class="principle-card gov">
-                <div class="principle-icon">
-                    <i class="fas fa-balance-scale"></i>
-                </div>
-                <h3>Governança</h3>
-                <p>Transparência total, compliance ético, segurança de dados e governança corporativa responsável. Administramos com visão clara, diligência e prestação de contas contínua.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ESG Investment Section -->
-    <section id="investimento" class="esg-section">
-        <div class="esg-content">
-            <div class="esg-text">
-                <span class="section-tag">Oportunidade de Investimento</span>
-                <h3>Fundos de Investimento via Lei de Incentivo ESG</h3>
-                <p>Estamos estruturando <strong>fundos de investimento dedicados</strong> que operam através da Lei de Incentivo ESG, permitindo que empresas investidoras destinem recursos para projetos de transformação social e cultural com benefícios fiscais e retorno mensurável de impacto.</p>
+    <!-- Housing Section -->
+    <section id="habitacao" class="housing-section">
+        <div class="housing-content">
+            <div class="housing-text">
+                <span class="section-tag">Habitação Social</span>
+                <h3>Reforma Agrária e Habitação de Interesse Social</h3>
+                <p>Parte do fundo é destinada à <strong>reforma agrária por doações</strong> de empresas, utilizando métodos construtivos inovadores como <strong>domos geodésicos</strong> e outras tecnologias sustentáveis.</p>
                 
-                <p>Esta modalidade permite a <strong>escala sustentável</strong> dos ecossistemas de inovação social, conectando capital privado a projetos comunitários validados e estruturados para gerar resultados concretos.</p>
+                <p>Trabalhamos em parceria com o <strong>setor público</strong> e políticas como <strong>Minha Casa Minha Vida</strong> para reconstrução de ambientes e fomento à reforma agrária, integrando habitação digna com produção sustentável.</p>
 
-                <ul class="esg-benefits">
+                <ul class="housing-features">
                     <li>
-                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-home"></i>
                         <div>
-                            <strong>Benefícios Fiscais Atrativos</strong>
-                            <p>Dedutibilidade fiscal conforme legislação vigente de incentivo à cultura e responsabilidade social</p>
+                            <strong>Domos Geodésicos Sustentáveis</strong>
+                            <p>Construção rápida, econômica e ecológica para comunidades rurais e urbanas</p>
                         </div>
                     </li>
                     <li>
-                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-tractor"></i>
                         <div>
-                            <strong>Impacto Mensurável</strong>
-                            <p>Metodologia própria de M&E (Monitoramento e Avaliação) com KPIs claros e relatórios de impacto</p>
+                            <strong>Reforma Agrária Produtiva</strong>
+                            <p>Assentamentos com infraestrutura para agricultura familiar e agroecologia</p>
                         </div>
                     </li>
                     <li>
-                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-handshake"></i>
                         <div>
-                            <strong>Governança Participativa</strong>
-                            <p>Comitês com representação de investidores, comunidade e especialistas técnicos</p>
+                            <strong>Parceria Minha Casa Minha Vida</strong>
+                            <p>Captação junto à Caixa Econômica para projetos habitacionais estruturados</p>
                         </div>
                     </li>
                     <li>
-                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-leaf"></i>
                         <div>
-                            <strong>Carteira Diversificada</strong>
-                            <p>Projetos culturais, educacionais, ambientais e de infraestrutura social validados em diferentes territórios</p>
+                            <strong>Autossuficiência Alimentar</strong>
+                            <p>Hortas comunitárias e sistemas agroflorestais integrados aos assentamentos</p>
                         </div>
                     </li>
                 </ul>
 
-                <a href="#contato" class="btn btn-primary" style="margin-top: 1rem;">
-                    <i class="fas fa-file-invoice-dollar"></i> Receber Proposta ESG
+                <a href="#cadastro" class="btn btn-primary">
+                    <i class="fas fa-file-alt"></i> Cadastrar Projeto de Habitação
                 </a>
             </div>
 
-            <div class="esg-visual">
-                <div class="esg-orbit-visual"></div>
-                <div class="esg-circle">
-                    <i class="fas fa-leaf"></i>
-                    <h4>ESG</h4>
-                    <p>Environmental<br>Social<br>Governance</p>
-                </div>
-                <div class="esg-badges">
-                    <div class="esg-badge-float badge-env">Ambiental</div>
-                    <div class="esg-badge-float badge-social">Social</div>
-                    <div class="esg-badge-float badge-gov">Governança</div>
+            <div class="housing-visual">
+                <i class="fas fa-dungeon"></i>
+                <h4>Ecossistema Construtivo</h4>
+                <p>Empresas de construção de domos geodésicos, incorporadoras experientes e ONGs habilitadas trabalhando em conjunto para entrega de moradias dignas e sustentáveis.</p>
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1);">
+                    <p style="font-size: 0.9rem; color: var(--texto-claro); margin-bottom: 0.5rem;"><strong>Parceiros Estratégicos:</strong></p>
+                    <p style="font-size: 0.85rem; color: var(--texto-claro);">Construtoras de domos • Incorporadoras • ONGs habilitadas • Caixa Econômica</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Manifesto -->
-    <section style="background: linear-gradient(135deg, rgba(155, 17, 30, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%); border-radius: 30px; padding: 4rem; margin: 4rem 0; text-align: center;">
-        <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--rubi);">Proposta de Valor</h2>
-        <p style="font-size: 1.2rem; line-height: 2; color: var(--texto-claro); max-width: 900px; margin: 0 auto;">
-            Acelerar transformação social e cultural ao criar pontes entre comunidade, conhecimento técnico e poder público, garantindo que inovação gere dignidade, oportunidade econômica e preservação cultural. Perfil multidisciplinar que traduz ciência em política aplicada, com foco em saberes ancestrais e economia criativa.
-        </p>
-    </section>
-
-    <!-- Methodology -->
-    <section>
+    <!-- Partnerships Section -->
+    <section id="parcerias" class="partnerships-section">
         <div class="section-header">
-            <span class="section-tag">Como Funciona</span>
-            <h2 class="section-title">Metodologia de Atuação</h2>
-            <p class="section-subtitle">Processo estruturado em 6 etapas para garantir excelência e impacto mensurável</p>
+            <span class="section-tag">Ecossistema</span>
+            <h2 class="section-title">Nossa Rede de Parcerias</h2>
+            <p class="section-subtitle">Infraestrutura completa para operação e captação de recursos</p>
         </div>
 
-        <div class="methodology">
-            <div class="method-item">
-                <div class="method-number">1</div>
-                <h4>Mapeamento</h4>
-                <p>Identificação de necessidades territoriais e oportunidades de investimento</p>
+        <div class="partnerships-grid">
+            <div class="partnership-card">
+                <div class="partnership-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h4>Ministério da Cultura</h4>
+                <p>Projetos em pauta para Territórios Culturais Permanentes, alinhados à Política Nacional de Cultura Viva e programas federais de fomento.</p>
             </div>
-            <div class="method-item">
-                <div class="method-number">2</div>
-                <h4>Estruturação</h4>
-                <p>Montagem de projeto técnico alinhado a leis de incentivo fiscal</p>
+
+            <div class="partnership-card">
+                <div class="partnership-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h4>UNICAMP & Universidades</h4>
+                <p>Parceria com Neurociências do Esporte, pesquisa biomecânica e validação acadêmica dos projetos de formação e saúde.</p>
             </div>
-            <div class="method-item">
-                <div class="method-number">3</div>
-                <h4>Captação</h4>
-                <p>Conexão com empresas tributárias e mobilização de recursos</p>
+
+            <div class="partnership-card">
+                <div class="partnership-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h4>Incentiv.me</h4>
+                <p>Plataforma parceira para ampliação do escopo de captação direta com empresas e parceiros tributários, oferecendo benefício complementar.</p>
             </div>
-            <div class="method-item">
-                <div class="method-number">4</div>
-                <h4>Execução</h4>
-                <p>Implementação via rede de ONGs e universidades parceiras</p>
-            </div>
-            <div class="method-item">
-                <div class="method-number">5</div>
-                <h4>Monitoramento</h4>
-                <p>Acompanhamento contínuo de KPIs de impacto e compliance</p>
-            </div>
-            <div class="method-item">
-                <div class="method-number">6</div>
-                <h4>Restituição</h4>
-                <p>Entrega de resultados e retorno aos investidores e comunidade</p>
+        </div>
+
+        <div style="background: var(--fundo); border-radius: 20px; padding: 2.5rem; margin-top: 3rem; text-align: center;">
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--rubi);">
+                <i class="fas fa-network-wired" style="margin-right: 0.5rem;"></i>
+                Ecossistema Disruptivos & Disruptivos Culturais
+            </h4>
+            <p style="color: var(--texto-claro); max-width: 800px; margin: 0 auto 1.5rem;">
+                Formação de novos negócios culturais com apoio de captadores nas Leis de Incentivo. 
+                Conexão entre empreendedores, investidores e implementadores para geração de renda sustentável 
+                nas comunidades atendidas pelos Territórios Culturais Permanentes.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <span style="padding: 0.5rem 1rem; background: white; border-radius: 50px; font-size: 0.9rem;">
+                    <i class="fas fa-lightbulb" style="color: var(--ouro); margin-right: 0.5rem;"></i>Captadores Especializados
+                </span>
+                <span style="padding: 0.5rem 1rem; background: white; border-radius: 50px; font-size: 0.9rem;">
+                    <i class="fas fa-rocket" style="color: var(--esmeralda); margin-right: 0.5rem;"></i>Incubação Cultural
+                </span>
+                <span style="padding: 0.5rem 1rem; background: white; border-radius: 50px; font-size: 0.9rem;">
+                    <i class="fas fa-store" style="color: var(--azul); margin-right: 0.5rem;"></i>Marketplace de Ideias
+                </span>
             </div>
         </div>
     </section>
 
-    <!-- Challenges & Solutions -->
-    <section class="challenges-section">
+    <!-- Registration Forms Section -->
+    <section id="cadastro" class="forms-section">
         <div class="section-header">
-            <span class="section-tag">Desafios & Soluções</span>
-            <h2 class="section-title">Superando Barreiras</h2>
-            <p class="section-subtitle">Estratégias para enfrentar os principais obstáculos na construção de ecossistemas de impacto</p>
+            <span class="section-tag">Participe</span>
+            <h2 class="section-title">Cadastre-se em Nossa Plataforma</h2>
+            <p class="section-subtitle">Junte-se ao ecossistema de Territórios Culturais Permanentes e Habitação Social</p>
         </div>
 
-        <div class="challenges-grid">
-            <div class="challenge-box desafios">
-                <h3><i class="fas fa-exclamation-triangle"></i> Desafios</h3>
-                <div>
-                    <div class="list-item">
-                        <i class="fas fa-times-circle list-icon"></i>
-                        <div>
-                            <strong>Fragmentação institucional</strong>
-                            <p>Falta de integração entre atores públicos, privados e comunitários</p>
-                        </div>
+        <div class="forms-grid">
+            <!-- Project Registration Form -->
+            <div class="form-card">
+                <h3><i class="fas fa-lightbulb"></i> Cadastrar Projeto Cultural ou Social</h3>
+                <p>Tem um projeto de Território Cultural Permanente, Centro de Formação ou Habitação Social? Cadastre-se para estruturação e captação de recursos.</p>
+                
+                <form action="https://formsubmit.co/carvalhojaderson@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="Novo Cadastro de Projeto - Fundo Sabedoria Prática ESG">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <div class="form-group">
+                        <label for="projeto-nome">Nome do Projeto *</label>
+                        <input type="text" id="projeto-nome" name="Nome do Projeto" required placeholder="Ex: Território Cultural Permanente - [Cidade]">
                     </div>
-                    <div class="list-item">
-                        <i class="fas fa-times-circle list-icon"></i>
-                        <div>
-                            <strong>Burocracia governamental</strong>
-                            <p>Trâmites lentos que impedem a agilidade necessária para inovação social</p>
-                        </div>
+                    
+                    <div class="form-group">
+                        <label for="projeto-tipo">Tipo de Projeto *</label>
+                        <select id="projeto-tipo" name="Tipo" required>
+                            <option value="">Selecione...</option>
+                            <option value="Território Cultural Permanente">Território Cultural Permanente</option>
+                            <option value="Centro de Formação Imersiva">Centro de Formação Imersiva</option>
+                            <option value="Habitação Social">Habitação Social / Reforma Agrária</option>
+                            <option value="Centro CEU">Formato CEU (Cultura, Esporte, Lazer)</option>
+                            <option value="Outro">Outro</option>
+                        </select>
                     </div>
-                    <div class="list-item">
-                        <i class="fas fa-times-circle list-icon"></i>
-                        <div>
-                            <strong>Volatilidade de recursos</strong>
-                            <p>Dependência de financiamentos pontuais e escassez de fundos de longo prazo</p>
-                        </div>
+                    
+                    <div class="form-group">
+                        <label for="projeto-cidade">Cidade/Estado *</label>
+                        <input type="text" id="projeto-cidade" name="Localização" required placeholder="Ex: Juiz de Fora, MG">
                     </div>
-                    <div class="list-item">
-                        <i class="fas fa-times-circle list-icon"></i>
-                        <div>
-                            <strong>Risco de apropriação cultural</strong>
-                            <p>Mercantilização indevida de saberes ancestrais sem consentimento comunitário</p>
-                        </div>
+                    
+                    <div class="form-group">
+                        <label for="projeto-responsavel">Responsável/Proponente *</label>
+                        <input type="text" id="projeto-responsavel" name="Responsável" required placeholder="Nome completo">
                     </div>
-                </div>
+                    
+                    <div class="form-group">
+                        <label for="projeto-email">E-mail *</label>
+                        <input type="email" id="projeto-email" name="Email" required placeholder="seu@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projeto-telefone">Telefone/WhatsApp *</label>
+                        <input type="tel" id="projeto-telefone" name="Telefone" required placeholder="(31) 99999-9999">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projeto-valor">Valor Estimado de Captação (R$)</label>
+                        <input type="text" id="projeto-valor" name="Valor Estimado" placeholder="Ex: 5.000.000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projeto-descricao">Descrição do Projeto e Público-Alvo *</label>
+                        <textarea id="projeto-descricao" name="Descrição" required placeholder="Descreva seu projeto, atividades previstas, público beneficiado, parcerias existentes e como pretende utilizar os recursos..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-paper-plane"></i> Enviar Cadastro de Projeto
+                    </button>
+                </form>
             </div>
 
-            <div class="challenge-box solucoes">
-                <h3><i class="fas fa-check-circle"></i> Soluções</h3>
-                <div>
-                    <div class="list-item">
-                        <i class="fas fa-check-circle list-icon"></i>
-                        <div>
-                            <strong>Governança participativa</strong>
-                            <p>Comitês comunitários com poder decisório e representação diversa</p>
-                        </div>
+            <!-- Company/Partner Registration Form -->
+            <div class="form-card">
+                <h3><i class="fas fa-building"></i> Empresa ou Parceiro Tributário</h3>
+                <p>Empresa com saldos tributários para direcionar? Parceiro interessado em oferecer nossa plataforma como benefício? Cadastre-se aqui.</p>
+                
+                <form action="https://formsubmit.co/carvalhojaderson@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="Novo Parceiro/Empresa - Fundo Sabedoria Prática ESG">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <div class="form-group">
+                        <label for="empresa-nome">Nome da Empresa/Organização *</label>
+                        <input type="text" id="empresa-nome" name="Nome da Empresa" required placeholder="Razão Social">
                     </div>
-                    <div class="list-item">
-                        <i class="fas fa-check-circle list-icon"></i>
-                        <div>
-                            <strong>Assessoria técnica especializada</strong>
-                            <p>Tradução de demandas em projetos tecnicamente viáveis e alinhados a editais</p>
-                        </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa-tipo">Tipo de Parceria *</label>
+                        <select id="empresa-tipo" name="Tipo de Parceria" required>
+                            <option value="">Selecione...</option>
+                            <option value="Empresa Tributária">Empresa Tributária (Investidora)</option>
+                            <option value="Parceiro Captador">Parceiro Captador</option>
+                            <option value="Construtora/Incorporadora">Construtora/Incorporadora</option>
+                            <option value="Plataforma de Incentivo">Plataforma de Incentivo Fiscal</option>
+                            <option value="Outro">Outro</option>
+                        </select>
                     </div>
-                    <div class="list-item">
-                        <i class="fas fa-check-circle list-icon"></i>
-                        <div>
-                            <strong>Diversificação de fontes via ESG</strong>
-                            <p>Modelo híbrido: público + Lei de Incentivo ESG + marketplace tokenizado</p>
-                        </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa-cnpj">CNPJ *</label>
+                        <input type="text" id="empresa-cnpj" name="CNPJ" required placeholder="XX.XXX.XXX/0001-XX">
                     </div>
-                    <div class="list-item">
-                        <i class="fas fa-check-circle list-icon"></i>
-                        <div>
-                            <strong>Protocolos de proteção</strong>
-                            <p>Contratos de coautoria, inventário cultural e direitos autorais coletivos</p>
-                        </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa-responsavel">Responsável *</label>
+                        <input type="text" id="empresa-responsavel" name="Responsável" required placeholder="Nome do responsável">
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vision -->
-    <section>
-        <div class="section-header">
-            <span class="section-tag">Visão de Futuro</span>
-            <h2 class="section-title">Onde Queremos Chegar</h2>
-            <p class="section-subtitle">Construindo ecossistemas locais autossuficientes e políticas públicas baseadas em evidências</p>
-        </div>
-
-        <div class="vision-cards">
-            <div class="vision-card">
-                <div class="vision-icon">
-                    <i class="fas fa-network-wired"></i>
-                </div>
-                <h3>Rede Nacional</h3>
-                <p>Rede de hubs comunitários de inovação cultural interconectados, gerando impacto mensurável e receita sustentável</p>
-            </div>
-            <div class="vision-card">
-                <div class="vision-icon">
-                    <i class="fas fa-store"></i>
-                </div>
-                <h3>Marketplace</h3>
-                <p>Plataforma tokenizada de ideias que conecta projetos culturais a investidores com revenue-sharing justo</p>
-            </div>
-            <div class="vision-card">
-                <div class="vision-icon">
-                    <i class="fas fa-globe-americas"></i>
-                </div>
-                <h3>COP30 & Além</h3>
-                <p>Lançamento de programa piloto de políticas públicas interoperáveis em eventos internacionais de alto impacto</p>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 3rem;">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--rubi);">Valores Fundamentais</h3>
-            <div class="values-tags">
-                <span class="value-tag">Transparência Plena</span>
-                <span class="value-tag">Rigor na Seleção</span>
-                <span class="value-tag">Respeito à LGPD</span>
-                <span class="value-tag">Prioridade às Comunidades</span>
-                <span class="value-tag">Evitar Greenwashing</span>
-                <span class="value-tag">Lucro Responsável</span>
-                <span class="value-tag">Justiça Social</span>
-                <span class="value-tag">Prestação de Contas</span>
+                    
+                    <div class="form-group">
+                        <label for="empresa-cargo">Cargo/Função *</label>
+                        <input type="text" id="empresa-cargo" name="Cargo" required placeholder="Ex: Diretor de Sustentabilidade">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa-email">E-mail Corporativo *</label>
+                        <input type="email" id="empresa-email" name="Email" required placeholder="nome@empresa.com.br">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa-telefone">Telefone *</label>
+                        <input type="tel" id="empresa-telefone" name="Telefone" required placeholder="(31) 99999-9999">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa-interesse">Áreas de Interesse</label>
+                        <select id="empresa-interesse" name="Áreas de Interesse" multiple style="height: 100px;">
+                            <option value="Territórios Culturais">Territórios Culturais Permanentes</option>
+                            <option value="Habitação Social">Habitação Social</option>
+                            <option value="Esporte e Saúde">Esporte, Biomecânica e Neurociência</option>
+                            <option value="Formação Musical">Formação Musical</option>
+                            <option value="Cultura Chinesa">Cultura Chinesa/Pa Kua</option>
+                            <option value="Agricultura Urbana">Agricultura Urbana e Sustentabilidade</option>
+                        </select>
+                        <small style="color: var(--texto-claro); font-size: 0.8rem;">Segure Ctrl para selecionar múltiplas opções</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa-mensagem">Mensagem/Proposta</label>
+                        <textarea id="empresa-mensagem" name="Mensagem" placeholder="Descreva sua proposta de parceria, interesse específico ou como deseja contribuir..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-paper-plane"></i> Cadastrar Parceiro
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -2007,31 +1667,13 @@
     <section id="contato" class="contact-section">
         <div class="contact-content">
             <span class="section-tag" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.3);">Conecte-se</span>
-            <h2>Faça Parte da Nossa Rede</h2>
-            <p>Seja como empresa parceira, investidor, ONG ou governo, há um lugar para você no nosso ecossistema de impacto.</p>
-            
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <i class="fas fa-building"></i>
-                    <h4>Empresas</h4>
-                    <p>Direcione seus impostos para projetos de alto impacto ESG com benefícios fiscais</p>
-                    <a href="mailto:carvalhojaderson@gmail.com">Seja Parceira <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-user-tie"></i>
-                    <h4>Investidores</h4>
-                    <p>Acesse oportunidades tokenizadas com retorno mensurável e impacto real</p>
-                    <a href="mailto:carvalhojaderson@gmail.com">Invista Agora <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h4>Organizações</h4>
-                    <p>Conecte seu projeto à nossa rede de captação e execução</p>
-                    <a href="mailto:carvalhojaderson@gmail.com">Cadastre-se <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+            <h2>Fale Conosco</h2>
+            <p>
+                Entre em contato para mais informações sobre Territórios Culturais Permanentes, 
+                Habitação Social, parcerias estratégicas ou captação de recursos via Lei de Incentivo.
+            </p>
 
-            <div class="contact-direct">
+            <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <span>carvalhojaderson@gmail.com</span>
@@ -2059,7 +1701,9 @@
                     Fundo Sabedoria Prática ESG
                 </div>
                 <p class="footer-desc">
-                    Banco de investimentos orientado a ESG que canaliza saldos tributários e incentivos fiscais de empresas para financiar projetos sociais de alto impacto. Transformando obrigações tributárias em oportunidades de desenvolvimento humano.
+                    Plataforma de captação via Lei de Incentivo para Territórios Culturais Permanentes, 
+                    Centros de Formação Imersiva e Habitação Social. Transformando obrigações tributárias 
+                    em legado cultural e desenvolvimento comunitário.
                 </p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -2070,23 +1714,22 @@
             </div>
             
             <div class="footer-column">
-                <h4>Institucional</h4>
+                <h4>Projetos</h4>
                 <ul>
-                    <li><a href="#">Sobre Nós</a></li>
-                    <li><a href="#">Equipe</a></li>
-                    <li><a href="#">Transparência</a></li>
-                    <li><a href="#">Relatórios Anuais</a></li>
+                    <li><a href="#projetos">Territórios Culturais</a></li>
+                    <li><a href="#projetos">Formação Imersiva</a></li>
+                    <li><a href="#habitacao">Habitação Social</a></li>
+                    <li><a href="#habitacao">Reforma Agrária</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h4>Investimentos</h4>
+                <h4>Parcerias</h4>
                 <ul>
-                    <li><a href="#">Habitação</a></li>
-                    <li><a href="#">Saúde</a></li>
-                    <li><a href="#">Esportes</a></li>
-                    <li><a href="#">Alimentação</a></li>
-                    <li><a href="#">Tokenização</a></li>
+                    <li><a href="#parcerias">Ministério da Cultura</a></li>
+                    <li><a href="#parcerias">UNICAMP</a></li>
+                    <li><a href="#parcerias">Incentiv.me</a></li>
+                    <li><a href="#parcerias">Ecossistema Disruptivos</a></li>
                 </ul>
             </div>
             
@@ -2095,7 +1738,7 @@
                 <ul>
                     <li><a href="mailto:carvalhojaderson@gmail.com">carvalhojaderson@gmail.com</a></li>
                     <li><a href="tel:+5531982510633">(31) 98251-0633</a></li>
-                    <li><a href="#">Juiz de Fora, MG</a></li>
+                    <li><a href="#">Belo Horizonte, MG</a></li>
                 </ul>
             </div>
         </div>
@@ -2148,25 +1791,11 @@
         }, observerOptions);
 
         // Observe elements
-        document.querySelectorAll('.area-card, .partner-card, .principle-card, .vision-card, .method-item').forEach(el => {
+        document.querySelectorAll('.project-card, .partnership-card, .form-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
-        });
-
-        // Counter animation for stats
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const number = entry.target.querySelector('.stat-number');
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.stat-item').forEach(item => {
-            statsObserver.observe(item);
         });
     </script>
 
